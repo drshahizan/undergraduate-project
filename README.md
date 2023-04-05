@@ -16,7 +16,7 @@ Typically, students will work closely with a faculty advisor or mentor who will 
 Overall, undergraduate projects provide an excellent opportunity for students to apply their knowledge and skills in a practical and meaningful way, and to develop important skills that will serve them well in their future careers or further studies.
 
 ## 🔥 Important things ⚡
-- [Calendar](./materials/calender.md)
+- [Calendar](./materials/calendar.md)
 - [Materials]()
 - [Form]()
 - [Title Samples]()
