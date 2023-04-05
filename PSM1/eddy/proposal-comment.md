@@ -28,7 +28,7 @@ Here is a step-by-step approach for solving the problem of preserving cultural h
 
 By following these steps, it is possible to develop an effective system for preserving cultural heritage sites using machine learning-based microclimate monitoring. This approach is proactive and can help to prevent significant damage to heritage sites before it is too late, ensuring that they are preserved for future generations.
 
-## three possible objectives for the project:
+## Three possible objectives for the project:
 
 Develop a machine learning-based system to monitor microclimate parameters and identify potential issues that could lead to the deterioration of heritage sites.
 
