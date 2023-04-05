@@ -17,14 +17,12 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 
 ## 🔥 Important things ⚡
 - [Calendar](./materials/calendar.md)
-- [Materials]()
-- [Form]()
-- [Title Samples]()
-- [System Online]()
-- [Presentation]()
-- [Lab]()
-- [Proceeding]()
-- [IDEAS]()
+- [Materials](https://comp.utm.my/psm/psm-materials/)
+- [Form](https://comp.utm.my/psm/psm-form/)
+- [System Online](https://comp.utm.my/psm/psm-system-online/)
+- [Presentation](https://comp.utm.my/psm/psm-presentation/)
+- [Lab](https://comp.utm.my/psm/lab/)
+- [Proceeding](https://comp.utm.my/psm/lab/)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
