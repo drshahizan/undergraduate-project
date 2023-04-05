@@ -8,11 +8,11 @@
 Don't forget to hit the :star: if you like this repo.
 
 # Calendar
-These FYP Calendars are to help students, Supervisors and Examiners alike to handle the operations, progress and management of PSM better. It is filled with guideline on submissions, process and assessments dates and information for all. Please for the correct PSM Calendar, as provided below.
+The FYP calendars are intended to assist students, supervisors, and examiners in more effectively managing the PSM's operations, progress, and overall management. It includes guidelines, submission deadlines, assessment dates, and other pertinent information for all parties involved. For accurate and up-to-date information, please refer to the provided PSM calendar.
 
-Session 2022/2023  – 2 (Current) 
-PSM1-Calendar 20222023-2 v1 (Updated 21/03/23)
-PSM2-Calendar 20222023-2 v1 (Updated 21/03/23)
+## Session 2022/2023 – 2 
+1. [Calendar FYP1](https://comp.utm.my/psm/files/2023/03/PSM1-Calendar-20222023-2-v1.pdf)
+2. [Calendar FYP2](https://comp.utm.my/psm/files/2023/03/PSM2-Calendar-20222023-2-v1.pdf)
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
