@@ -1,4 +1,4 @@
-# undergraduate-project
+# Final Year Project
 
 Undergraduate projects are typically research-oriented projects that are undertaken by undergraduate students in their final year of study. These projects provide an opportunity for students to apply the knowledge and skills they have acquired throughout their undergraduate studies to a real-world problem or research question.
 
