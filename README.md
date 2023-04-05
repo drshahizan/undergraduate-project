@@ -26,7 +26,7 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 
 | No | Name | Title |  Github | Project |
 | ----- | ----- | ------ | :------: | :------: |
-| 1 | Li Jing | Enhanced Attack Detection and Classification Techniques Based on Feature Manipulation of IOT Data for IOT Security | [:octocat:](./li-jing) | <a href="https://github.com/users/drshahizan/projects/1" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 1 | Thoriqulhaq Jibril Al Qudsy | Power Plants Performance Monitoring System in PT PLN (PERSERO) UP3 Pamekasan | [:octocat:](./li-jing) | <a href="https://github.com/users/drshahizan/projects/1" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 2 | Saleh Dhekre Saber Saleh | A Predictive Analysis Framework of Thyroid Disease Using Machine Learning Approaches | [:octocat:](./dhekre) | <a href="https://github.com/users/drshahizan/projects/10" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 3 | Anwar Said Salim Al Talaii | Artificial Intelligence to Enhance Development and Increase Harvest Production for Agriculture in Sultant of Oman using drones | [:octocat:](./anwar) | <a href="https://github.com/users/drshahizan/projects/4" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 4 | Li Haopeng | |[:octocat:](./haopeng)| <a href="https://github.com/users/drshahizan/projects/5" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
