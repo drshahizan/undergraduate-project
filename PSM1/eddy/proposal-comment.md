@@ -27,3 +27,16 @@ Here is a step-by-step approach for solving the problem of preserving cultural h
 8. Scale the system: Consider scaling the system to other heritage sites in Malaysia and beyond, adapting it as necessary to suit different environments and cultural contexts.
 
 By following these steps, it is possible to develop an effective system for preserving cultural heritage sites using machine learning-based microclimate monitoring. This approach is proactive and can help to prevent significant damage to heritage sites before it is too late, ensuring that they are preserved for future generations.
+
+## three possible objectives for the project:
+
+Develop a machine learning-based system to monitor microclimate parameters and identify potential issues that could lead to the deterioration of heritage sites.
+
+Design a preventive maintenance strategy based on the insights gained from the microclimate data analysis, which suggests appropriate maintenance actions to preserve the site's aesthetics and cultural values.
+
+Create a user-friendly dashboard that displays real-time microclimate data and provides recommendations for maintenance actions to assist local authorities with heritage site preservation.
+
+
+
+
+
