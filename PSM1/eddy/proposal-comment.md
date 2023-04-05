@@ -1,4 +1,9 @@
-# Problem Background and Proposed Solution
+## Title
+- original: Preserving Heritage Architecture through Machine Learning-Based Microclimate Monitoring: A Case Study in Johor Bahru, Malaysia
+
+- suggestion: "Preserving Cultural Heritage Sites through Machine Learning-Based Microclimate Monitoring: A Case Study of Johor Bahru, Malaysia"
+
+## Problem Background and Proposed Solution
 The preservation of cultural heritage sites is a significant challenge that requires constant attention and care. Unfortunately, due to the lack of proper maintenance, many heritage sites suffer from gradual deterioration. The traditional methods of maintenance often used in the past were reactive, meaning that significant damage had already occurred before any action was taken. This reactive approach has resulted in many heritage sites being lost forever.
 
 To address this problem, proactive measures are needed to detect potential issues and suggest preventive maintenance actions to preserve the site's aesthetics and cultural values. In this research proposal, we aim to preserve heritage architecture in Johor Bahru, Malaysia, by leveraging machine learning-based microclimate monitoring.
