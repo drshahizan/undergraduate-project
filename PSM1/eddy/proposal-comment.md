@@ -58,7 +58,7 @@ Linear regression is a common type of regression analysis that can be used to so
 ## List the scope of the project
 The scope of the project for preserving cultural heritage sites using machine learning-based microclimate monitoring could include the following:
 
-= Collecting and analyzing microclimate data from the Malaysian Meteorological Department for the heritage site identified by the local authority of Johor Bahru.
+- Collecting and analyzing microclimate data from the Malaysian Meteorological Department for the heritage site identified by the local authority of Johor Bahru.
 - Developing suitable machine learning algorithms to analyze the microclimate data and identify potential issues that could affect the preservation status of the site.
 - Developing a preventive maintenance strategy based on the insights gained from the analysis of the microclimate data.
 - Designing a user-friendly dashboard that displays real-time microclimate data and recommends appropriate maintenance actions to the local authorities.
