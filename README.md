@@ -24,6 +24,16 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 - [Lab](https://comp.utm.my/psm/lab/)
 - [Proceeding](https://comp.utm.my/psm/lab/)
 
+| No | Name | Title |  Github | Project |
+| ----- | ----- | ------ | :------: | :------: |
+| 1 | Li Jing | Enhanced Attack Detection and Classification Techniques Based on Feature Manipulation of IOT Data for IOT Security | [:octocat:](./li-jing) | <a href="https://github.com/users/drshahizan/projects/1" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 2 | Saleh Dhekre Saber Saleh | A Predictive Analysis Framework of Thyroid Disease Using Machine Learning Approaches | [:octocat:](./dhekre) | <a href="https://github.com/users/drshahizan/projects/10" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 3 | Anwar Said Salim Al Talaii | Artificial Intelligence to Enhance Development and Increase Harvest Production for Agriculture in Sultant of Oman using drones | [:octocat:](./anwar) | <a href="https://github.com/users/drshahizan/projects/4" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 4 | Li Haopeng | |[:octocat:](./haopeng)| <a href="https://github.com/users/drshahizan/projects/5" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 5 | Zhu Linnan |Benefits of User Factors in the Context of Management Information Systems in the Higher Education Industry.  |[:octocat:](./zhulinnan)| <a href="https://github.com/users/drshahizan/projects/7" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 6 | Zhu Chaihua|The Credit Mechanism of E-Commerce Merchant in the Context of Social Network |[:octocat:](./zhu-chaihua)| <a href="https://github.com/users/drshahizan/projects/3" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 7 | Franklin Degadzor Ashigbi| The post adoption determinants of sustained use of digital transformation in revenue mobilisation in Ghana|[:octocat:](./franklin)| <a href="https://github.com/users/drshahizan/projects/8" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
 
