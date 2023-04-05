@@ -54,3 +54,15 @@ Yes, regression models can be used to solve the problem of preserving cultural h
 Using regression models, we can analyze the historical microclimate data to identify patterns and relationships between the microclimate parameters and the preservation status of the site. We can then use this information to develop a predictive model that can forecast the future preservation status of the site based on the microclimate parameters. The model can then suggest appropriate preventive maintenance actions to preserve the site's aesthetics and cultural values.
 
 Linear regression is a common type of regression analysis that can be used to solve the problem of preserving cultural heritage sites. It involves fitting a linear equation to the data, which allows us to estimate the relationship between the dependent and independent variables. Other regression models such as polynomial regression and logistic regression can also be used depending on the characteristics of the data and the specific requirements of the project.
+
+## List the scope of the project
+The scope of the project for preserving cultural heritage sites using machine learning-based microclimate monitoring could include the following:
+
+= Collecting and analyzing microclimate data from the Malaysian Meteorological Department for the heritage site identified by the local authority of Johor Bahru.
+- Developing suitable machine learning algorithms to analyze the microclimate data and identify potential issues that could affect the preservation status of the site.
+- Developing a preventive maintenance strategy based on the insights gained from the analysis of the microclimate data.
+- Designing a user-friendly dashboard that displays real-time microclimate data and recommends appropriate maintenance actions to the local authorities.
+- Evaluating and testing the developed model and dashboard to ensure effectiveness in assisting local authorities with heritage site preservation.
+- Providing recommendations for the application and adaptation of the approach to other heritage sites in Malaysia and beyond, contributing to the broader goal of safeguarding cultural heritage sites for future generations.
+- The project could also involve collaboration with local authorities, experts in heritage site preservation, and other relevant stakeholders to ensure the success and sustainability of the project.
+- The project could also involve addressing any ethical and legal considerations related to the collection and use of microclimate data for heritage site preservation.
