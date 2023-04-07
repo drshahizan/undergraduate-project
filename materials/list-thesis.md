@@ -7,7 +7,7 @@
 
 Don't forget to hit the :star: if you like this repo.
 
-## Students
+## PSM1 Report Example
 
 | No | Name | Title | Project |
 | ----- | ----- | ------ | :------: |
