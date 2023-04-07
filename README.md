@@ -17,7 +17,7 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 
 ## 🔥 Important things ⚡
 - [Calendar](./materials/calendar.md)
-- [PSM1 Report Example](./materials/)
+- [PSM1 Report Example](./materials/list-thesis.md)
 - [Materials](https://comp.utm.my/psm/psm-materials/)
 - [Form](https://comp.utm.my/psm/psm-form/)
 - [System Online](https://comp.utm.my/psm/psm-system-online/)
