@@ -12,7 +12,7 @@ Don't forget to hit the :star: if you like this repo.
 | No | Name | Title | Project |
 | ----- | ----- | ------ | :------: |
 | 1 | CHOY WAN LING | UTM CAR-SHARING SERVICES MOBILE APPLICATION | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 2 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 2 | MUHAMMAD HAZIQ DANIAL BIN MUSAL | ELECTRONIC MEDICAL CERTIFICATE (e-MC) FOR PUSAT KESIHATAN UTM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 3 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 4 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 5 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
