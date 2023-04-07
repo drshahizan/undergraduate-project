@@ -9,7 +9,7 @@ Don't forget to hit the :star: if you like this repo.
 
 ## PSM1 Report Example
 
-| No | Name | Title | Project |
+| No | Name | Title | Report |
 | -----: | ----- | ------ | :------: |
 | 1 | CHOY WAN LING | UTM CAR-SHARING SERVICES MOBILE APPLICATION | <a href="https://drive.google.com/file/d/1WpqCe5PON-pIdJjgN6XNBLnBglQYCzjW/view?usp=sharing" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 2 | MUHAMMAD HAZIQ DANIAL BIN MUSAL | ELECTRONIC MEDICAL CERTIFICATE (e-MC) FOR PUSAT KESIHATAN UTM  | <a href="https://drive.google.com/file/d/1z03E4L1kKoUO6FTsIrlTKFdPU-8woUhV/view?usp=sharing" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
