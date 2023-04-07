@@ -15,12 +15,10 @@ Don't forget to hit the :star: if you like this repo.
 | 2 | MUHAMMAD HAZIQ DANIAL BIN MUSAL | ELECTRONIC MEDICAL CERTIFICATE (e-MC) FOR PUSAT KESIHATAN UTM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 3 | JACK LEE | MOO DUK KWAN TAEKWONDO KLUANG CLUB MANAGEMENT SYSTEM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 4 | LIEW WEI XIAN | SIEW FANG HOMESTAY ONLINE BOOKING SYSTEM | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 5 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 6 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 7 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 8 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 9 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 10 |  |   | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 5 | LOW WEI CHIEH | RAINFOREST BAKERY ONLINE ORDERING AND MANAGEMENT SYSTEM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 6 | MOHAMAD RUSHDAN IMADI BIN MOHAMAD ARAKI | PAKAQ GOMO GYM MANAGEMENT SYSTEM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 7 | TANG KUAN YEW | GS REALTY SDN. BHD. APPOINTMENT AND REAL ESTATE BOOKING SYSTEM  | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 8 | TOON SHU HUI | BABYMOM CONFINEMENT HOME BOOKING AND MANAGEMENT SYSTEM | <a href="" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
