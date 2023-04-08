@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html, body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+.p-divider.p-divider-horizontal:before {
+    border-top-color: black !important;
+}
+
+.p-sidebar {
+    background: linear-gradient(180.11deg, rgb(74 222 128) 0.09%, rgba(74, 222, 128, 0) 100.24%, rgba(74, 222, 128, 0) 100.24%) !important;
+}
+
+.custom-bg-color {
+    background: url("/images/image.png"), linear-gradient(105.81deg, rgba(74, 222, 128, 0.9) -18.16%, rgba(158, 255, 194, 0.9) 98.31%) !important;
+    background-size: cover !important;
+}
+
+.highlight-page {
+    border-left: 8px solid white!important;
+    color: white !important;
+
+}
+
+.sidebar-icon{
+    font-size: 1.25rem !important;
+}
+
+.topbar {
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    padding: 1rem ;
+    background-color: #f8f9fa ;
+    border-bottom: 1px solid #dee2e6 ;
+}
+
+.page-title {
+    font-size: 1.25rem ;
+    font-weight: 500 ;
+    color: #343a40 ;
+}
