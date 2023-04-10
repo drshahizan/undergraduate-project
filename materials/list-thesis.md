@@ -11,8 +11,8 @@ Don't forget to hit the :star: if you like this repo.
 
 | No | Name | Title | Report |
 | -----: | ----- | ------ | :------: |
-| 1 | Thoriqulhaq Jibril Al Qudsy | Power Plants Performance Monitoring System in PT PLN (PERSERO) UP3 Pamekasan | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/thoriqulhaq" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 2 | Muhammad Darlen Sava | Student Academic Management System for SMAS Muhammadiyah 1 Banda Aceh | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/darlen" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 1 | Thoriqulhaq Jibril Al Qudsy | Power Plants Performance Monitoring System in PT PLN (PERSERO) UP3 Pamekasan | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/thoriqulhaq" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 2 | Muhammad Darlen Sava | Student Academic Management System for SMAS Muhammadiyah 1 Banda Aceh | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/darlen" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 3 | CHOY WAN LING | UTM CAR-SHARING SERVICES MOBILE APPLICATION | <a href="https://drive.google.com/file/d/1WpqCe5PON-pIdJjgN6XNBLnBglQYCzjW/view?usp=sharing" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 4 | MUHAMMAD HAZIQ DANIAL BIN MUSAL | ELECTRONIC MEDICAL CERTIFICATE (e-MC) FOR PUSAT KESIHATAN UTM  | <a href="https://drive.google.com/file/d/1z03E4L1kKoUO6FTsIrlTKFdPU-8woUhV/view?usp=sharing" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 5 | JACK LEE | MOO DUK KWAN TAEKWONDO KLUANG CLUB MANAGEMENT SYSTEM  | <a href="https://drive.google.com/file/d/1OL7NLo2KzbrvjLNVrsI_Jux8CwD6Dnmk/view?usp=sharing" ><img src="../images/calendar-24.svg" width="20px" height="20px" ></a> |
