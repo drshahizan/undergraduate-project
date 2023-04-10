@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.p-tieredmenu.p-tieredmenu-overlay {
+    top: 92px !important;
+    padding: 0.8rem 0 !important;
+    border-radius: 1rem !important;
+}
+
+.p-dropdown-item {
+    padding: 0.656rem 1.25rem !important;
+}
+
+/* Custom date-picker */
+
+.p-datepicker table {
+    font-size: 0.875rem !important;
+}
+
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-year,
+.p-datepicker .p-datepicker-header .p-datepicker-title .p-datepicker-month {
+    font-size: 0.875rem !important;
+}
+
+.p-datepicker table td {
+    padding: 4px 0 !important;
+}
+
+.p-datepicker .p-datepicker-header {
+    padding: 0 !important;
+}
+
+.p-calendar .p-button {
+    background: white !important;
+    border: 1px solid white !important;
+    color: #747C84 !important;
+}
+
+.p-calendar .p-inputtext {
+    border: none !important;
+    color: #6D757D !important;
+}
+
+/* End custom date-picker */
+
+/* Custom table */
+
+.p-datatable .p-datatable-thead > tr > th:first-child {
+    border-top-left-radius: 1rem !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th:last-child {
+    border-top-right-radius: 1rem !important;
+}
+
+.p-datatable .p-datatable-tbody > tr:last-child > td:first-child {
+    border-bottom-left-radius: 1rem !important;
+    border-width : 0 0 0 0;
+}
+
+.p-datatable .p-datatable-tbody > tr:last-child > td:last-child {
+    border-bottom-right-radius: 1rem !important;
+    border-width : 0 0 0 0;
+}
+
+/* End custom table */
