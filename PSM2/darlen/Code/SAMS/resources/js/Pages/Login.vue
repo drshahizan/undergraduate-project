@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-[url('/images/image.png')] bg-cover h-screen bg-green-400 relative">
+    <div class="custom-bg-color h-screen relative">
         <div class="absolute top-0 left-0 w-[400px] p-4">
             <img src="/images/logo.png" />
         </div>
@@ -21,7 +21,7 @@
                 <Divider />
                 <div class="p-grid ">
                     <div  class="flex justify-center ">
-                        <Button  class="w-full" severity="success" raised label="Login" />
+                        <a class="w-full" href="/dashboard-guru"><Button  class="w-full" severity="success" raised label="Login" /></a>
                     </div>
                 </div>
             </div>

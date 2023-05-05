@@ -10,17 +10,88 @@ html, body{
     border-top-color: black !important;
 }
 
+
 .p-sidebar {
-    background: linear-gradient(180.11deg, rgb(74 222 128) 0.09%, rgba(74, 222, 128, 0) 100.24%, rgba(74, 222, 128, 0) 100.24%) !important;
+    background: linear-gradient(180.11deg, rgb(74 222 128) 90.4%, rgba(74, 222, 128, 0) 110.24%, rgba(74, 222, 128, 0) 110.24%) !important;
+}
+
+/* .p-datatable{
+    border-radius: 10px !important;
+} */
+
+.p-datatable-header {
+    border-top-right-radius: 10px !important;
+border-top-left-radius: 10px !important;
+}
+
+/* .p-datatable-table {
+    border-radius: 10px !important;
+} */
+
+/* .p-datatable-thead {
+    border-radius: 10px !important;
+} */
+
+/* .p-datatable-tbody {
+    border-radius: 10px !important;
+} */
+
+/* .p-datatable-tfoot {
+    border-radius: 10px !important;
+} */
+
+/* .p-sortable-column {
+    border-top-left-radius: 10px !important;
+    
+} */
+
+/* .p-column-title {
+    border-radius: 10px !important;
+} */
+
+.p-paginator.p-component{
+    border-top-left-radius: 0px !important;
+        border-top-right-radius: 0 !important;
+}
+
+/* .p-datatable-wrapper {
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+} */
+
+.p-datatable-wrapper.jadwal {
+    border-radius: 10px !important;
+  
+}
+
+.p-tree-toggler-icon {
+    color: #000000 !important;
+}
+
+.p-treenode-icon {
+    color: #000000 !important;
+}
+
+.p-menuitem-icon {
+    color: #000000 !important;
+}
+
+.p-submenu-icon {
+    color: #000000 !important;
+}
+
+.p-tree {
+    background: linear-gradient(180.11deg, rgb(74 222 128) 90.09%, rgba(74, 222, 128, 0) 100.24%, rgba(74, 222, 128, 0) 100.24%) !important;
+    color: #343a40 !important;
 }
 
 .custom-bg-color {
-    background: url("/images/image.png"), linear-gradient(105.81deg, rgba(74, 222, 128, 0.9) -18.16%, rgba(158, 255, 194, 0.9) 98.31%) !important;
+    background:  linear-gradient(105.81deg, rgba(74, 222, 128, 0.9) -18.16%, rgba(158, 255, 194, 0.9) 98.31%) !important;
     background-size: cover !important;
 }
 
 .highlight-page {
-    border-left: 8px solid white!important;
+    
     color: white !important;
 
 }

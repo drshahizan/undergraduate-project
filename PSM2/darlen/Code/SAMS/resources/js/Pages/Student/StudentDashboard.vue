@@ -1,53 +1,93 @@
 <template>
     <div class="h-screen relative custom-bg-color">
-        <div class="card flex justify-right ">
 
-            <Sidebar v-model:visible="visible" class=" md:w-20rem lg:w-30rem" dismissable @mouseleave="visible = false"
-                :showCloseIcon="false">
-                <div class="flex flex-col gap-[30px]">
-                    <img src="/images/logo.png" />
-
-                    <Link :class="{ 'highlight-page': $page.url === '/dashboard' }" href="/dashboard"
-                        class="text-xl flex flex-row gap-[10px] items-center"><i class="ml-4 mr-0 pi pi-home sidebar-icon"></i>Dashboard</Link>
-                    <Link :class="{ 'highlight-page': $page.url === '/manajemen-akun' }" href="/manajemen-akun"
-                        class="text-xl flex flex-row gap-[10px] items-center"><i class="ml-4 mr-0 pi pi-users sidebar-icon"></i>Manajemen Akun</Link>
-                    <Link :class="{ 'highlight-page': $page.url === '/tambah-akun-guru' }" href="/tambah-akun-guru"
-                        class="text-xl flex flex-row gap-[10px] items-center"><i class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>Tambah Akun Guru</Link>
-                    <Link :class="{ 'highlight-page': $page.url === '/tambah-akun-siswa' }" href="/tambah-akun-siswa"
-                        class="text-xl flex flex-row gap-[10px] items-center"><i class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>Tambah Akun Siswa</Link>
-                    <Link :class="{ 'highlight-page': $page.url === '/tambah-akun-admin' }" href="/tambah-akun-admin"
-                        class="text-xl flex flex-row gap-[10px] items-center"><i class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>Tambah Akun Admin</Link>
+        <StudentSidebar />
 
 
 
-
-                </div>
-            </Sidebar>
-            <Button class="bg-green-600 text-green-200 m-4" icon="pi pi-bars" @mouseover="visible = true" />
+        <div class="flex justify-center items-center mt-12 flex-col">
+            <h1 class="text-2xl font-bold">
+                Selamat Datang di Student Academic Management System
+            </h1> <br><br><br><br><br>
+            <img src="/images/logo.png" class="h-30 w-96" />
+            <h1 class="text-2xl font-bold">
+                Silahkan menggunakan menu navigasi di samping untuk mengakses berbagai fitur
+            </h1>
+        </div> <br><br><br>
+        <div class="mx-[20rem] p-[2rem] flex justify-center items-center flex-row bg-slate-100 rounded-md">
+            <Chart type="pie" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
+            <Chart type="bar" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
+            <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
         </div>
     </div>
 </template>
 
 <script >
+import Chart from 'primevue/chart';
 import Divider from 'primevue/divider';
+import Menubar from 'primevue/menubar';
 import 'primeicons/primeicons.css';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import Sidebar from 'primevue/sidebar';
+import StudentSidebar from "../../Components/StudentSidebar";
 import { ref } from 'vue';
-
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
+import ColumnGroup from 'primevue/columngroup';   // optional
+import Row from 'primevue/row';                   // optional
 
 
 export default {
     components: {
         Button,
-        Sidebar,
+        StudentSidebar,
+        InputText,
+        Divider,
+        DataTable,
+        Column,
+        ColumnGroup,
+        Row,
+        Menubar,
+        Chart,
     },
 
     setup(props) {
-        const visible = ref(false);
+        const visible = ref(true);
+        const chartData = ref();
+        const chartOptions = ref({
+            plugins: {
+                legend: {
+                    labels: {
+                        usePointStyle: true
+                    }
+                }
+            }
+        });
+
+        const setChartData = () => {
+
+            return {
+                labels: ['Student', 'Teacher', 'Class'],
+                datasets: [
+                    {
+                        data: [540, 325, 702],
+                        backgroundColor: ["blue", "yellow", "green"],
+                        hoverBackgroundColor: ["blue", "yellow", "green"]
+                    }
+                ]
+            };
+        };
+
+        chartData.value = setChartData();
+
+
         return {
             visible: visible,
+            chartData: chartData,
+            chartOptions: chartOptions,
+            setChartData: setChartData
+
+
         }
     }
 }
