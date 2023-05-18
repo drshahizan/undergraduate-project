@@ -41,8 +41,7 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 
 | No | Name | Title | Project |
 | ----- | ----- | ------ | :------: |
-| 1 | MOHD ABRAR BIN MOHD AZMI | SISTEM BANTUAN DERMASISWA INSTITUISI PENGAJIAN
-TINGGI (ASNAF) LEMBAGA ZAKAT SELANGOR | <a href="/PSM2/etc/abrar.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 1 | MOHD ABRAR BIN MOHD AZMI | SISTEM BANTUAN DERMASISWA INSTITUISI PENGAJIAN TINGGI (ASNAF) LEMBAGA ZAKAT SELANGOR | <a href="/PSM2/etc/abrar.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 
 
 ## Contribution 🛠️
