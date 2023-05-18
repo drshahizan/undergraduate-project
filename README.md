@@ -43,6 +43,9 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 | ----- | ----- | ------ | :------: |
 | 1 | MOHD ABRAR BIN MOHD AZMI | SISTEM BANTUAN DERMASISWA INSTITUISI PENGAJIAN TINGGI (ASNAF) LEMBAGA ZAKAT SELANGOR | <a href="/PSM2/etc/abrar.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 | 2 | MOHD AFFENDI MOHAMAD | SMART MANAGEMENT SYSTEM FOR TM TRAININGS AND CONFERENCE EVENT | <a href="/PSM2/etc/fendi.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 3 | LOOI SEE YEE | HITACHI SUNWAY TRAINING MANAGEMENT SYSTEM | <a href="/PSM2/etc/looi.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 4 | NORAIN BINTI ZOLRAHIM | SISTEM PENGURUSAN PELAPORAN NEPS | <a href="/PSM2/etc/norain.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 5 | MUHAMMAD NAJID BIN ABDUL RAUF | DIARI PRODUKTIVITI PEKERJA SMART BUSINESS CONSULTANCY | <a href="/PSM2/etc/najid.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
