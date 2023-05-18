@@ -29,12 +29,12 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 
 | No | Name | Title |  Github | Project |
 | ----- | ----- | ------ | :------: | :------: |
-| 1 | Thoriqulhaq Jibril Al Qudsy | Power Plants Performance Monitoring System in PT PLN (PERSERO) UP3 Pamekasan | [:octocat:](https://github.com/thoriqulhaq) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/thoriqulhaq" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 2 | Muhammad Darlen Sava | Student Academic Management System for SMAS Muhammadiyah 1 Banda Aceh | [:octocat:](https://github.com/NostrumPyre) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM2/darlen" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 3 | Iman Aidi Elham bin Hairul Nizam | Preserving Cultural Heritage Sites through Random Forest & XGBoost Algorithm for Microclimate Monitoring & Prediction | [:octocat:](https://github.com/edy034) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM1/eddy" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 4 | John Matthew H Banayad | Using Decision Tree or Support Vector Machines Algorithms to Analyze Microclimate Data in Aiding the Safeguarding of Cultural and Historical Architectures | [:octocat:](https://github.com/banayadjohn) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM1/banayadjohn" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 5 | Adeb Morshed | Faculty of Computing Staff Publication Dashboard | [:octocat:](https://github.com/AdibNihal10) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM1/AdibNihal10" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-| 6 | Islam Mohamed Ruzhan | Research grant profiling for staffs of Faculty of Computing | [:octocat:](https://github.com/ruzhan05) | <a href="https://github.com/drshahizan/undergraduate-project/tree/main/PSM1/ruzhan05" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 1 | Thoriqulhaq Jibril Al Qudsy | Power Plants Performance Monitoring System in PT PLN (PERSERO) UP3 Pamekasan | [:octocat:](https://github.com/thoriqulhaq) | <a href="/PSM2/thoriqulhaq" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 2 | Muhammad Darlen Sava | Student Academic Management System for SMAS Muhammadiyah 1 Banda Aceh | [:octocat:](https://github.com/NostrumPyre) | <a href="/PSM2/darlen" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 3 | Iman Aidi Elham bin Hairul Nizam | Preserving Cultural Heritage Sites through Random Forest & XGBoost Algorithm for Microclimate Monitoring & Prediction | [:octocat:](https://github.com/edy034) | <a href="/PSM1/eddy" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 4 | John Matthew H Banayad | Using Decision Tree or Support Vector Machines Algorithms to Analyze Microclimate Data in Aiding the Safeguarding of Cultural and Historical Architectures | [:octocat:](https://github.com/banayadjohn) | <a href="/PSM1/banayadjohn" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 5 | Adeb Morshed | Faculty of Computing Staff Publication Dashboard | [:octocat:](https://github.com/AdibNihal10) | <a href="/PSM1/AdibNihal10" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
+| 6 | Islam Mohamed Ruzhan | Research grant profiling for staffs of Faculty of Computing | [:octocat:](https://github.com/ruzhan05) | <a href="/PSM1/ruzhan05" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 
 
 ## Students: Graduate
@@ -42,7 +42,7 @@ Overall, undergraduate projects provide an excellent opportunity for students to
 | No | Name | Title | Project |
 | ----- | ----- | ------ | :------: |
 | 1 | MOHD ABRAR BIN MOHD AZMI | SISTEM BANTUAN DERMASISWA INSTITUISI PENGAJIAN TINGGI (ASNAF) LEMBAGA ZAKAT SELANGOR | <a href="/PSM2/etc/abrar.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
-
+| 2 | MOHD AFFENDI MOHAMAD | SMART MANAGEMENT SYSTEM FOR TM TRAININGS AND CONFERENCE EVENT | <a href="/PSM2/etc/fendi.pdf" ><img src="./images/calendar-24.svg" width="20px" height="20px" ></a> |
 
 ## Contribution 🛠️
 Please create an [Issue](https://github.com/drshahizan/undergraduate-project/issues) for any improvements, suggestions or errors in the content.
