@@ -1,44 +1,75 @@
 <template>
-    <div class="bg-[url('/images/BG_P3MS.png')] bg-cover min-h-screen">
-        <div class="pt-[39px] pb-[54px] pl-[54px] w-full min-h-screen h-full flex flex-col gap-[56px]">
-            <Navbar />
-            <div class="flex items-center">
-                <Link class="rounded-full w-[43px] h-[43px] bg-[#525663] flex justify-center z-10" href="/dashboard">
-                    <i class="pi pi-chevron-left text-white hover:text-gray-400 my-auto"></i>
-                </Link>
-                <div class="ml-[-30px] rounded-r-[18px] h-[36px] flex justify-center z-0" style="background: linear-gradient(270deg, #ADADAD 0%, rgba(196, 196, 196, 0) 93.22%);">
-                    <h5 class="my-auto mr-[57px] ml-[79px] text-white font-semibold tracking-[0.1em]">REKAP</h5>
-                </div>
+    <SecondaryLayoutStaff>
+        <template #header>
+            <div>
+                <p class="text-[#14A3B8] font-semibold">Detail Rekap ({{ data.power_plant_type }})</p>
+                <p class="text-[12px]">{{ data.recapitulation_type }}</p>
             </div>
-            <div class="flex-1 flex gap-[56px]">
-                <div class="flex flex-col flex-1">
-                    <h5 class="text-white text-[24px] font-semibold tracking-[0.1em]">REKAPITULASI (16 APRIL 2023)</h5>
-                    <p class="text-white mb-[25px] tracking-[0.1em]">PLTS TONDUK</p>
-                    <div class="flex-1 rounded-[18px] flex justify-center items-center" style="background: linear-gradient(180deg, rgba(173, 173, 173, 0.5) -39.27%, rgba(173, 173, 173, 0) 100%);">
-                        <component :is="rekapitulasi?.code"></component>
+            <div class="flex gap-[1rem]">
+                <Link href="/rekap/riwayat">
+                    <div class="py-[0.5rem] px-[1rem] flex justify-center items-center bg-white border-[#14A3B8] rounded-[0.5rem] drop-shadow-[0px_12px_24px_rgba(0,0,0,0.04)]">
+                        <p class="text-[#14A3B8] text-[14px]">Kembali</p>
+                    </div>
+                </Link>
+                <Link v-if="data.status == 'Dibuat' || data.status == 'Ditolak'" :href="'/rekap/edit/' + data.id" class="py-[0.5rem] px-[1rem] flex justify-center items-center bg-[#14A3B8] rounded-[0.5rem] drop-shadow-[0px_12px_24px_rgba(0,0,0,0.04)]">
+                    <p class="text-white text-[14px]">Ubah</p>
+                </Link>
+            </div>
+        </template>
+        <div class="overflow-hidden bg-white flex-1 rounded-[1.5rem] px-[1.5rem] py-[1.75rem] relative flex flex-col">
+            <div class="flex justify-between items-center mb-[5rem] mt-[1rem] relative">
+                <hr class="h-[1px] w-full bg-[#E1E2EA]">
+                <div class="absolute right-0 top-[-1.25rem] w-full flex justify-around">
+                    <div class="text-[12px] font-semibold text-[#616278] tracking-[0.075rem] flex flex-col justify-center items-center gap-[1rem]">
+                        <div class="border-[1px] rounded-full flex h-[2.5rem] w-[2.5rem] justify-center items-center text-[#606279] bg-[#E4E7EC] px-[1rem]">
+                            <p>1</p>
+                        </div>
+                        <p>Rekap Dibuat</p>
+                    </div>
+                    <div class="text-[12px] font-semibold text-[#616278] tracking-[0.075rem] flex flex-col justify-center items-center gap-[1rem]">
+                        <div  :class="data.status != 'Dibuat' ? 'bg-[#E4E7EC] text-[#606279]' : 'bg-[#FEFFFE]  text-[#616278] '"  class="border-[1px] rounded-full flex h-[2.5rem] w-[2.5rem] justify-center items-center px-[1rem]">
+                            <p>2</p>
+                        </div>
+                        <p>Sedang Dievaluasi</p>
+                    </div>
+                    <div class="text-[12px] font-semibold text-[#616278] tracking-[0.075rem] flex flex-col justify-center items-center gap-[1rem]">
+                        <div  :class="data.status != 'Dibuat' &&  data.status != 'Dievaluasi'? 'bg-[#E4E7EC] text-[#606279]' : 'bg-[#FEFFFE]  text-[#616278] '"  class="border-[1px] rounded-full flex h-[2.5rem] w-[2.5rem] justify-center items-center px-[1rem]">
+                            <p>3</p>
+                        </div>
+                        <p>Telah Dievaluasi</p>
                     </div>
                 </div>
-                <div class="w-[302px] mr-[54px] flex flex-col gap-[32px]">
-                    <!-- Option Menu -->
-                    <Link class="bg-[#6EB452] w-full h-[44px] flex justify-between items-center rounded-[6px] border-[1px] border-[#6EB452] px-[12px]">
-                        <i class="pi pi-save text-white mr-[12px]"></i>
-                        <h5 class="tracking-[0.1em] text-white">Simpan</h5>
-                        <div class="m-[12px]"></div>
-                    </Link>
-                    <Link class="bg-[#282A39] w-full h-[44px] flex justify-between items-center rounded-[6px] border-[1px] border-[white] px-[12px]">
-                        <i class="pi pi-send text-white mr-[12px]"></i>
-                        <h5 class="tracking-[0.1em] text-white">Kirim</h5>
-                        <div class="m-[12px]"></div>
-                    </Link>
+            </div>
+            <div class="overflow-y-scroll scrollbar-hide flex-1 flex flex-col">
+                <div class="flex gap-[1.5rem] mb-[1.5rem]">
+                    <div class="rounded-[1.25rem] border-[#E0E3EA] border-[1.5px] border-dashed p-[1rem] flex flex-col gap-[0.5rem] flex-1">
+                        <p class="font-semibold text-[14px] text-[#A1A5B6]">Pembangkit</p>
+                        <p class="text-[14px]">{{ data.power_plant_name }}</p>
+                    </div>
+                    <div class="rounded-[1.25rem] border-[#E0E3EA] border-[1.5px] border-dashed p-[1rem] flex flex-col gap-[0.5rem] flex-1">
+                        <p class="font-semibold text-[14px] text-[#A1A5B6]">Tanggal</p>
+                        <p class="text-[14px]">{{ data.date_time}}</p>
+                    </div>
+                    <div class="rounded-[1.25rem] border-[#E0E3EA] border-[1.5px] border-dashed p-[1rem] flex flex-col gap-[0.5rem] flex-1">
+                        <p class="font-semibold text-[14px] text-[#A1A5B6]">Hasil Evaluasi</p>
+                        <div class="flex items-center gap-[0.3rem]">
+                            <p class="text-[14px]">{{ data.status == 'Disetujui' || data.status == 'Ditolak' ? data.status : '-' }}</p>
+                            <p v-if="data.status == 'Ditolak'" v-tooltip.right="{ value: `<p class='text-white text-[12px] my-[-5px]'>${data?.log?.message}</p>`, escape: true}" class="pi pi-exclamation-circle text-[#F0406C] text-[14px]"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <component :is="rekapitulasi?.code" :data="data"></component>
                 </div>
             </div>
         </div>
-    </div>
+    </SecondaryLayoutStaff>
 </template>
 
 <script>
 import { ref } from "vue";
-import Navbar from "../../Components/Navbar.vue";
+import SecondaryLayoutStaff from "../../Layouts/Staff/SecondaryLayout.vue";
+import Steps from 'primevue/steps';
 
 import BBMPemakaian from '../../Layouts/RekapitulasiView/PLTD/BBMPemakaian.vue';
 import BBMStok from '../../Layouts/RekapitulasiView/PLTD/BBMStok.vue';
@@ -49,11 +80,10 @@ import HARRealisasi from '../../Layouts/RekapitulasiView/PLTD/HARRealisasi.vue';
 import HARRencana from '../../Layouts/RekapitulasiView/PLTD/HARRencana.vue';
 import KWH from '../../Layouts/RekapitulasiView/PLTD/KWH.vue';
 import Pelumas from '../../Layouts/RekapitulasiView/PLTD/Pelumas.vue';
-import Default from '../../Layouts/RekapitulasiView/PLTS/Default.vue';
+import Utama from '../../Layouts/RekapitulasiView/PLTS/Utama.vue';
 
 export default {
     components: {
-        Navbar,
         BBMPemakaian,
         BBMStok,
         Beban,
@@ -63,13 +93,20 @@ export default {
         HARRencana,
         KWH,
         Pelumas,
-        Default,
+        Utama,
+        SecondaryLayoutStaff,
+        Steps
     },
     props: {
         tipe_rekapitulasi : {
             type: String,
             required: true,
             default : ''
+        },
+        data : {
+            type: Object,
+            required: true,
+            default : {}
         }
     },
     setup(props) {
@@ -83,13 +120,26 @@ export default {
             { name: 'HAR Rencana', code: HARRencana },
             { name: 'KWH', code: KWH },
             { name: 'Pelumas', code: Pelumas },
-            { name: 'Default', code: Default },
+            { name: 'Utama', code: Utama },
         ]
         
-        const rekapitulasi = ref(list_tipe_rekapitulasi[1]);
+        const rekapitulasi = ref(list_tipe_rekapitulasi[list_tipe_rekapitulasi.findIndex((item) => item.name == props.data.recapitulation_type)]);
+        
+        const items = ref([
+            {
+                label: 'Rekap Dibuat',
+            },
+            {
+                label: 'Sedang Dievaluasi',
+            },
+            {
+                label: 'Telah Dievaluasi',
+            }
+        ]);
         
         return {
-            rekapitulasi
+            rekapitulasi,
+            items
         }
     }
 }

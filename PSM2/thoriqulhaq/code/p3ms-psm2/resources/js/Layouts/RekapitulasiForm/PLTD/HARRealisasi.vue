@@ -1,14 +1,14 @@
 <template>
-    <div class="flex flex-col w-full h-full px-[34px] py-[40px]">
+    <div class="flex flex-col w-full h-full">
         <div class="flex w-full gap-[61px]">
             <div class="flex-[4_4_0%]">
                 <RekapitulasiDropdown 
                     value="UNIT" 
                     :model="{
-                        name: 'unit_mesin',
-                        value: formState.unit_mesin
+                        name: 'unit',
+                        value: formState.unit
                     }"
-                    :option="list_mesin"
+                    :option="optionEngine"
                     :updateFormState="updateFormState"
                     unit="MW"
                 />
@@ -17,54 +17,63 @@
                 <RekapitulasiTextArea 
                     value="KEGIATAN HAR" 
                     :model="{
-                        name: 'kegiatan_har',
-                        value: formState.kegiatan_har
+                        name: 'activity',
+                        value: formState.activity
                     }"
                     :updateFormState="updateFormState"
                 />
             </div>
         </div>
         <div class="flex w-full flex-col">
-            <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">MATERIAL HAR</h2>
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">MATERIAL HAR</h2>
             <div class="flex w-full gap-[61px]">
                 <div class="flex-[4_4_0%]">
                     <div class="flex gap-[32px]">
                         <RekapitulasiDropdown 
-                            value="UNIT" 
+                            value="MATERIAL" 
                             :model="{
-                                name: 'unit_mesin',
-                                value: formState.unit_mesin
+                                name: 'material',
+                                value: formState.material
                             }"
-                            :option="list_mesin"
+                            :option="optionMaterial"
                             :updateFormState="updateFormState"
-                            unit="MW"
+                            unit=""
                             :useLabel="false"
                         />
                         <RekapitulasiInput 
-                            value="STOK PENERIMAAN" 
+                            value="JUMLAH" 
                             :model="{
-                                name: 'mesin_1_mp3',
-                                value: formState.mesin_1_mp3
+                                name: 'quantity',
+                                value: formState.quantity
                             }"
                             :updateFormState="updateFormState"
                             unit="BH"
                             :useLabel="false"
                         />
                     </div>
-                    <Link class="bg-[#282A39] w-full h-[44px] flex justify-center items-center rounded-[6px] px-[12px]">
+                    <button v-on:click="addSelectedMaterial()" class="bg-[#12A4B9] w-full h-[38px] flex justify-center items-center rounded-[6px] px-[12px]">
                         <i class="pi pi-plus text-white mr-[12px] font-semibold"></i>
-                    </Link>
+                    </button>
                 </div>
-                <div class="flex-[5_5_0%]">
-                    <DataTable :value="products" tableClass="min-w-full">
-                        <Column headerClass="bg-[#282A39] text-white" field="id" header="ID"></Column>
-                        <Column headerClass="bg-[#282A39] text-white" field="material" header="Material"></Column>
-                        <Column headerClass="bg-[#282A39] text-white" field="jumlah" header="Jumlah"></Column>
-                        <Column headerClass="bg-[#282A39] text-white" field="option" header="">
-                            <template #body="{  }">
-                                <Link>
-                                    <i class="pi pi-trash text-[#E0686B] mr-[12px] font-semibold"></i>
-                                </Link>
+                <div class="flex-[5_5_0%] recap-input-table mb-[2rem]">
+                    <DataTable :value="selectedMaterial" tableClass="min-w-full">
+                        <template #empty>
+                            <div class="flex justify-center items-center">
+                                <p class="italic text-[#A7ACB0]">Data tidak ditemukan</p>
+                            </div>
+                        </template>
+                        <template #loading>
+                            <div class="flex justify-center items-center">
+                                <p class="italic text-[#A7ACB0]">Sedang memuat data, harap tunggu</p>
+                            </div>
+                        </template>
+                        <Column bodyClass="p-[0.75rem]" headerClass="p-[0.75rem] text-[#6D757D]" field="material" header="Material" style="min-width: 4rem"></Column>
+                        <Column bodyClass="p-[0.75rem]" headerClass="p-[0.75rem] text-[#6D757D]" field="quantity" header="Jumlah" style="width: 10rem"></Column>
+                        <Column bodyClass="p-[0.75rem]" headerClass="p-[0.75rem] text-[#6D757D]" field="option" header="" style="width: 4rem">
+                            <template #body="{ data }">
+                                <button v-on:click="deleteSelectedMaterial(data.id)" class="py-[0.5rem] px-[1rem] flex justify-center items-center bg-[#F0416D] border-[#F0416D] rounded-[0.5rem] max-w-[80px]">
+                                    <p class="text-white text-[14px]">Hapus</p>
+                                </button>
                             </template>
                         </Column>
                     </DataTable>
@@ -76,6 +85,7 @@
 
 <script>
 import { ref } from "vue";
+import { usePage } from '@inertiajs/vue3';
 import RekapitulasiDropdown from "../../../Components/RekapitulasiDropdown.vue";
 import RekapitulasiInput from '../../../Components/RekapitulasiInput.vue';
 import RekapitulasiTextArea from "../../../Components/RekapitulasiTextArea.vue";
@@ -95,45 +105,108 @@ export default {
         Row
     },
     props: {
-        
+        formState: {
+            type: Object,
+            required: true
+        },
+        data : {
+            type: Object,
+            default : {}
+        }
     },
     setup(props) {
-        const formState = ref({
-            unit_mesin : '',
-            kegiatan_har : '',
-        })
+        const page = usePage();
         
-        const list_mesin = ref([
-            { name: 'Mesin 1', code: '1' },
-            { name: 'Mesin 2', code: '2' },
-        ]);
+        const getCurrentUnit = () => {
+            if(props.data.detail?.unit) {
+                return {
+                    name: `Mesin ${props.data.detail?.unit}`,
+                    code: `${props.data.detail?.unit}`
+                }
+            } else {
+                return ''
+            }
+        }
+        
+        const initialData = {
+            unit : getCurrentUnit(),
+            activity : props.data.detail?.activity ?? '',
+            material : null,
+            quantity : 0,
+            selectedMaterial : props.data.detail?.selectedMaterial ?? []
+        }
+        
+        const optionEngine = ref([]);
+
+        for (let i = 1; i <= page.props.user.engine_quantity; i++) {
+            optionEngine.value.push({
+                name: `Mesin ${i}`,
+                code: `${i}`
+            })
+        }
+        
+        const selectedMaterial = ref(props.data.detail?.selectedMaterial ?? [])
+        
+        const getOptionMaterial = () => {
+            return page.props.user.material.map((item) => {
+                const isExist = selectedMaterial.value.find((selected) => {
+                    return selected.id == item.id
+                })
+                
+                if(!isExist) {
+                    return {
+                        name: item.description,
+                        id: item.id,
+                    }
+                }
+            }).filter((item) => {
+                return item != null
+            })
+        } 
+        
+        const optionMaterial = ref(getOptionMaterial());
+        
+        Object.assign(props.formState, initialData);
         
         const updateFormState = (model, isNumber = false) => {
             if (isNumber) {
-                formState.value[model.name] = Number(model.value);
+                props.formState[model.name] = Number(model.value);
             } else {
-                formState.value[model.name] = model.value;
+                props.formState[model.name] = model.value;
             }
         };
         
-        const products = [
-            {
-                id: '1',
-                material: 'Fuel Filter',
-                jumlah: 24,
-            },
-            {
-                id: '2',
-                material: 'Oil Filter',
-                jumlah: 24,
-            },
-        ]
+        const addSelectedMaterial = () => {
+            if(props.formState.material != null && props.formState.quantity != 0) {
+                selectedMaterial.value.push({
+                    id: props.formState.material.id,
+                    material: props.formState.material.name,
+                    quantity: props.formState.quantity,
+                })
+                
+                props.formState.selectedMaterial = selectedMaterial;
+                
+                props.formState.material = null;
+                props.formState.quantity = 0;
+                
+                optionMaterial.value = getOptionMaterial();
+            }
+        }
+        
+        const deleteSelectedMaterial = (id) => {
+            selectedMaterial.value = selectedMaterial.value.filter((item) => item.id !== id);
+            props.formState.selectedMaterial = selectedMaterial;
+            
+            optionMaterial.value = getOptionMaterial();
+        }
         
         return {
-            formState,
             updateFormState,
-            list_mesin,
-            products
+            optionEngine,
+            optionMaterial,
+            selectedMaterial,
+            addSelectedMaterial,
+            deleteSelectedMaterial
         }
     }
 }

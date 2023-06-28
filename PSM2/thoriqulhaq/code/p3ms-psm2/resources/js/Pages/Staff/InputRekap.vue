@@ -1,65 +1,60 @@
 <template>
-    <div class="bg-[url('/images/BG_P3MS.png')] bg-cover min-h-screen">
-        <div class="pt-[39px] pb-[54px] pl-[54px] w-full min-h-screen h-full flex flex-col gap-[56px]">
-            <Navbar />
-            <div class="flex items-center">
-                <Link class="rounded-full w-[43px] h-[43px] bg-[#525663] flex justify-center z-10" href="/dashboard">
-                    <i class="pi pi-chevron-left text-white hover:text-gray-400 my-auto"></i>
+    <SecondaryLayoutStaff>
+        <template #header>
+            <div class="flex items-center gap-[1.5rem]">
+                <!-- <div class="flex gap-[3rem] text-[15px] text-[#5F6279] font-semibold">
+                    <Link href="/" class="p-overlay-badge h-[2.75rem] w-[2.75rem] flex justify-center items-center bg-white rounded-full drop-shadow-[0px_12px_24px_rgba(0,0,0,0.04)]">
+                        <i class="pi pi-home text-[#BFC3CF] "></i>
+                    </Link>
+                </div> -->
+                <div>
+                    <p class="text-[#14A3B8] font-semibold">Input Rekap ({{ $page.props.user.power_plant_type }})</p>
+                    <p class="text-[12px]">{{ rekapitulasi?.name }}</p>
+                </div>
+            </div>
+            <form
+                @submit.prevent="submitForm()"
+                class="flex gap-[1rem]"
+            >
+                <Link href="/" class="py-[0.5rem] px-[1rem] flex justify-center items-center bg-white border-[#14A3B8] rounded-[0.5rem] drop-shadow-[0px_12px_24px_rgba(0,0,0,0.04)]">
+                    <p class="text-[#14A3B8] text-[14px]">Batal</p>
                 </Link>
-                <div class="ml-[-30px] rounded-r-[18px] h-[36px] flex justify-center z-0" style="background: linear-gradient(270deg, #ADADAD 0%, rgba(196, 196, 196, 0) 93.22%);">
-                    <h5 class="my-auto mr-[57px] ml-[79px] text-white font-semibold tracking-[0.1em]">INPUT REKAP</h5>
+                <button type="submit" class="py-[0.5rem] px-[1rem] flex justify-center items-center bg-[#14A3B8] rounded-[0.5rem] drop-shadow-[0px_12px_24px_rgba(0,0,0,0.04)]">
+                    <p class="text-white text-[14px]">Simpan</p>
+                </button>
+            </form>
+        </template>
+        <div class="overflow-y-scroll scrollbar-hide flex-1 flex flex-col">
+            <div class="mb-[1.5rem] font-semibold text-[#616379] flex justify-between items-center">
+                <p>Informasi Dasar</p>
+                <p v-tooltip.left="{ value: `<p class='text-white text-[12px] my-[-5px]'>Hello World</p>`, escape: true}" class="pi pi-info-circle"></p>
+            </div>
+            <div class="bg-white rounded-[1.25rem] px-[1.4rem] pt-[1.25rem] mb-[32px]">
+                <div class="flex gap-[2rem]">
+                    <div class="mb-[1.5rem] min-w-[168px] w-full flex-[3_3_0%]">
+                        <p class="mb-[10px] text-[#A1A5B6] tracking-[0.1em] text-[14px]">Nama Pembangkit</p>
+                        <Dropdown v-model="formState.power_plant_id" :options="optionPowerPlant" optionLabel="name" placeholder="Pilih"
+                            class="w-full md:w-14rem border-[1.5px] border-[#F8F8F9] rounded-[0.5rem] bg-[#F8F8F9]" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm"
+                            panelClass="text-[0.875rem]" />
+                    </div>
+                    <div class="mb-[1.5rem] min-w-[168px] flex-[1.25_1.25_0%]">
+                        <p class="mb-[10px] text-[#A1A5B6] tracking-[0.1em] text-[14px]">Tanggal Input</p>
+                        <Calendar showTime hourFormat="24" v-model="formState.date_time" showIcon class="w-full h-[44px] border-[1.5px] border-[#F8F8F9] rounded-[0.5rem]" inputClass="p-inputtext-sm bg-[#F8F8F9]"
+                            panelClass="text-[0.875rem]" placeholder="Pilih" dateFormat="dd/mm/yy" />
+                    </div>
                 </div>
             </div>
-            <div class="flex-1 flex gap-[56px]">
-                <div class="flex flex-col flex-1">
-            <div class="flex gap-[53px]">
-                <div class="mb-[32px] min-w-[168px] w-full flex-1">
-                    <p class="mb-[10px] font-semibold text-white tracking-[0.1em]">Tipe Pembangkit</p>
-                    <Dropdown v-model="pembangkit" :options="tipe_pembangkit" optionLabel="name" placeholder="Pilih"
-                        class="w-full md:w-14rem" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm"
-                        panelClass="text-[0.875rem]" />
-                </div>
-                <div class="mb-[32px] min-w-[168px] w-full flex-[2_2_0%]">
-                    <p class="mb-[10px] font-semibold text-white tracking-[0.1em]">Nama Pembangkit</p>
-                    <Dropdown v-model="nama_pembangkit" :options="list_pembangkit" optionLabel="name" placeholder="Pilih"
-                        class="w-full md:w-14rem" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm"
-                        panelClass="text-[0.875rem]" />
-                </div>
-                <div class="mb-[32px] min-w-[168px] w-full flex-[3_3_0%]">
-                    <p class="mb-[10px] font-semibold text-white tracking-[0.1em]">Tanggal Input</p>
-                    <Calendar v-model="date" showIcon class="w-full h-[44px]" inputClass="p-inputtext-sm"
-                        panelClass="text-[0.875rem]" placeholder="Pilih" dateFormat="dd/mm/yy" />
-                </div>
-                <div class="mb-[32px] min-w-[168px] w-full flex-[2_2_0%]">
-                    <p class="mb-[10px] font-semibold text-white tracking-[0.1em]">Tipe Rekapitulasi</p>
-                    <Dropdown v-model="rekapitulasi" :options="tipe_rekapitulasi[pembangkit?.id]" optionLabel="name" placeholder="Pilih"
-                        class="w-full md:w-14rem" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm"
-                        panelClass="text-[0.875rem]" />
-                </div>
+            <div class="mb-[1.5rem] font-semibold text-[#616379] flex justify-between items-center">
+                <p>Hasil Rekap</p>
+                <p v-tooltip.left="{ value: `<p class='text-white text-[12px] my-[-5px]'>Hello World</p>`, escape: true}" class="pi pi-info-circle"></p>
             </div>
-            <div v-if="rekapitulasi" class="flex-1 rounded-[18px] flex justify-center items-center" style="background: linear-gradient(180deg, rgba(173, 173, 173, 0.5) -39.27%, rgba(173, 173, 173, 0) 100%);">
-                <component :is="rekapitulasi?.code"></component>
-            </div>
-            <div v-else class="flex-1 rounded-[18px] flex justify-center items-center" style="background: linear-gradient(180deg, rgba(173, 173, 173, 0.5) -39.27%, rgba(173, 173, 173, 0) 100%);">
-                <h5 class="text-white font-semibold tracking-[0.1em]">PILIH TERLEBIH DAHULU !</h5>
-            </div>
-            </div>
-                <div class="w-[302px] mr-[54px] mt-[32px] flex flex-col gap-[32px]">
-                    <!-- Option Menu -->
-                    <Link class="bg-[#6EB452] w-full h-[44px] flex justify-between items-center rounded-[6px] border-[1px] border-[#6EB452] px-[12px]">
-                        <i class="pi pi-save text-white mr-[12px]"></i>
-                        <h5 class="tracking-[0.1em] text-white">Simpan</h5>
-                        <div class="m-[12px]"></div>
-                    </Link>
-                    <Link class="bg-[#282A39] w-full h-[44px] flex justify-between items-center rounded-[6px] border-[1px] border-[white] px-[12px]">
-                        <i class="pi pi-send text-white mr-[12px]"></i>
-                        <h5 class="tracking-[0.1em] text-white">Kirim</h5>
-                        <div class="m-[12px]"></div>
-                    </Link>
+            <div class="bg-white flex-1 rounded-[1.25rem] px-[1.4rem] pt-[1.75rem]">
+                <div>
+                    <component :is="rekapitulasi?.code" :formState="formState"></component>
                 </div>
             </div>
         </div>
-    </div>
+    </SecondaryLayoutStaff>
 </template>
 
 <script>
@@ -67,8 +62,8 @@ import { ref } from "vue";
 import InputText from 'primevue/inputtext';
 import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
-import Chart from 'primevue/chart';
-import Navbar from "../../Components/Navbar.vue";
+import SecondaryLayoutStaff from "../../Layouts/Staff/SecondaryLayout.vue";
+import { useForm } from '@inertiajs/vue3';
 
 import BBMPemakaian from '../../Layouts/RekapitulasiForm/PLTD/BBMPemakaian.vue';
 import BBMStok from '../../Layouts/RekapitulasiForm/PLTD/BBMStok.vue';
@@ -79,7 +74,7 @@ import HARRealisasi from '../../Layouts/RekapitulasiForm/PLTD/HARRealisasi.vue';
 import HARRencana from '../../Layouts/RekapitulasiForm/PLTD/HARRencana.vue';
 import KWH from '../../Layouts/RekapitulasiForm/PLTD/KWH.vue';
 import Pelumas from '../../Layouts/RekapitulasiForm/PLTD/Pelumas.vue';
-import Default from '../../Layouts/RekapitulasiForm/PLTS/Default.vue'; 
+import Utama from '../../Layouts/RekapitulasiForm/PLTS/Utama.vue'; 
 
 
 export default {
@@ -87,8 +82,6 @@ export default {
         InputText,
         Dropdown,
         Calendar,
-        Chart,
-        Navbar,
         BBMPemakaian,
         BBMStok,
         Beban,
@@ -98,55 +91,63 @@ export default {
         HARRencana,
         KWH,
         Pelumas,
-        Default,
+        Utama,
+        SecondaryLayoutStaff
+    },
+    props: {
+        type: {
+            type: String,
+            required: true
+        },
+        listPowerPlant: {
+            type: Array,
+            default: () => []
+        },
     },
     setup(props) {
-        const formState = ref({
-            username: '',
-        });
+        const optionPowerPlant = ref(props.listPowerPlant);
 
-        const pembangkit = ref();
-        const tipe_pembangkit = ref([
-            { name: 'PLTS', code: 'plts', id: 0 },
-            { name: 'PLTD', code: 'pltd', id: 1 },
-        ]);
-
-        const nama_pembangkit = ref();
-        const list_pembangkit = ref([
-            { name: 'Mandangin', code: 'mandangin' },
-            { name: 'Masa Lembu', code: 'masa_lembu' },
-        ]);
-
-        const rekapitulasi = ref();
-        const tipe_rekapitulasi = ref([
-            [
-                { name: 'Default', code: Default },
-            ],
-            [
+        const tipe_rekapitulasi = [
                 { name: 'BBM Pemakaian', code: BBMPemakaian },
                 { name: 'BBM Stok', code: BBMStok },
                 { name: 'Beban', code: Beban },
-                { name: 'Fast Moving', code: FastMoving },
-                { name: 'Gangguan', code: Gangguan },
-                { name: 'HAR Realisasi', code: HARRealisasi },
+                { name: 'Fast Moving', code: FastMoving },//
+                { name: 'Gangguan', code: Gangguan },//
+                { name: 'HAR Realisasi', code: HARRealisasi },//
                 { name: 'HAR Rencana', code: HARRencana },
                 { name: 'KWH', code: KWH },
                 { name: 'Pelumas', code: Pelumas },
-            ]
-        ]);
+                { name: 'Utama', code: Utama },
+        ];
+        
+        const convertUrlAbleFormat = (str) => {
+            var lowercaseStr = str.toLowerCase();
+            var dashedStr = lowercaseStr.replace(/\s+/g, '-');
+            return dashedStr;
+        }
+        
+        const rekapitulasi = ref(tipe_rekapitulasi[tipe_rekapitulasi.findIndex((item) => convertUrlAbleFormat(item.name) === props.type)]);
 
-        const date = ref();
-
-
+        const formState = ref({
+            power_plant_id: '',
+            date_time: '',
+            recapitulation_type: rekapitulasi
+        });
+        
+        const submitForm = () => {
+            const data = useForm({
+                ...formState.value
+            })
+            
+            data.post(route('recap.create'));
+        }
+        
         return {
             formState,
-            pembangkit,
-            tipe_pembangkit,
-            nama_pembangkit,
-            list_pembangkit,
+            optionPowerPlant,
             rekapitulasi,
             tipe_rekapitulasi,
-            date
+            submitForm
         }
     }
 }

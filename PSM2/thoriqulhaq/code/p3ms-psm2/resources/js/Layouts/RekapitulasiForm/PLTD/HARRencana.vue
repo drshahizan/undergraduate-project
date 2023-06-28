@@ -1,13 +1,13 @@
 <template>
-    <div class="flex w-full h-full px-[34px] py-[40px] gap-[61px]">
+    <div class="flex w-full h-full gap-[61px]">
         <div class="flex-[4_4_0%]">
             <RekapitulasiDropdown 
                 value="UNIT" 
                 :model="{
-                    name: 'unit_mesin',
-                    value: formState.unit_mesin
+                    name: 'unit',
+                    value: formState.unit
                 }"
-                :option="list_mesin"
+                :option="optionEngine"
                 :updateFormState="updateFormState"
                 unit="MW"
             />
@@ -16,8 +16,8 @@
             <RekapitulasiTextArea 
                 value="KEGIATAN HAR" 
                 :model="{
-                    name: 'kegiatan_har',
-                    value: formState.kegiatan_har
+                    name: 'activity',
+                    value: formState.activity
                 }"
                 :updateFormState="updateFormState"
             />
@@ -27,6 +27,7 @@
 
 <script>
 import { ref } from "vue";
+import { usePage } from '@inertiajs/vue3';
 import RekapitulasiDropdown from "../../../Components/RekapitulasiDropdown.vue";
 import RekapitulasiTextArea from "../../../Components/RekapitulasiTextArea.vue";
 
@@ -36,31 +37,56 @@ export default {
         RekapitulasiTextArea
     },
     props: {
-        
+        formState: {
+            type: Object,
+            required: true
+        },
+        data : {
+            type: Object,
+            default : {}
+        }
     },
     setup(props) {
-        const formState = ref({
-            unit_mesin : '',
-            kegiatan_har : '',
-        })
+        const page = usePage();
         
-        const list_mesin = ref([
-            { name: 'Mesin 1', code: '1' },
-            { name: 'Mesin 2', code: '2' },
-        ]);
+        const getCurrentUnit = () => {
+            if(props.data.detail?.unit) {
+                return {
+                    name: `Mesin ${props.data.detail?.unit}`,
+                    code: `${props.data.detail?.unit}`
+                }
+            } else {
+                return ''
+            }
+        }
+        
+        const initialData = {
+            unit : getCurrentUnit(),
+            activity : props.data.detail?.activity ?? '',
+        }
+        
+        const optionEngine = ref([]);
+
+        for (let i = 1; i <= page.props.user.engine_quantity; i++) {
+            optionEngine.value.push({
+                name: `Mesin ${i}`,
+                code: `${i}`
+            })
+        }
+        
+        Object.assign(props.formState, initialData);
         
         const updateFormState = (model, isNumber = false) => {
             if (isNumber) {
-                formState.value[model.name] = Number(model.value);
+                props.formState[model.name] = Number(model.value);
             } else {
-                formState.value[model.name] = model.value;
+                props.formState[model.name] = model.value;
             }
         };
         
         return {
-            formState,
             updateFormState,
-            list_mesin
+            optionEngine
         }
     }
 }
