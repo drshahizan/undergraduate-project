@@ -1,21 +1,46 @@
 <template>
-    <div class="flex w-full h-full px-[34px] py-[40px] gap-[61px]">
+    <div class="flex flex-col mt-[20px]">
+        <div class="flex w-full h-full px-[20px] gap-[61px]">
         <div class="flex-1">
-            <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">TANGKI HARIAN</h2>
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Tangki Harian</h2>
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiResult
+                :value="'Mesin '+engine" 
+                    :data="data?.detail?.['engine_'+engine+'_th']"
+                    unit="L"
+                />
+            </template>
+        </div>
+        <div class="flex-1">
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Module PCC 300</h2>
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiResult
+                :value="'Mesin '+engine" 
+                    :data="data?.detail?.['engine_'+engine+'_mp3']"
+                    unit="L"
+                />
+            </template>
+        </div>
+    </div>
+    <h2 class="mb-[42px] px-[20px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Flow Meter</h2>
+    <div class="flex w-full h-full px-[20px] gap-[61px]">
+        <div class="flex-1">
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiResult
+                :value="'Mesin '+engine" 
+                    :data="data?.detail?.['engine_'+engine+'_fm']"
+                    unit="L"
+                />
+            </template>
+        </div>
+        <div class="flex-1">
             <RekapitulasiResult
-                value="MESIN 1"
-                data="100"
+                :value="'Induk'" 
+                :data="data?.detail?.['master_flow_meter']"
                 unit="L"
             />
         </div>
-        <div class="flex-1">
-            <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">MODULE PCC 3300</h2>
-            <RekapitulasiResult
-                value="MESIN 1"
-                data="100"
-                unit="L"
-            />
-        </div>
+    </div>
     </div>
 </template>
 

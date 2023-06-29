@@ -1,0 +1,21 @@
+.data,
+.data th,
+.data td {
+    border:1px solid black;
+    border-collapse: collapse;
+}
+
+.header {
+    text-align: center;
+    width: 288px;
+}
+
+.content {
+    text-align: center;
+}
+
+.data-info {
+    text-align: left;
+    width: 288px;
+    font-weight: bold;
+}

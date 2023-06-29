@@ -1,29 +1,56 @@
 <template>
-    <div class="bg-[url('/images/BG_P3MS.png')] bg-cover h-screen">
-        <div class="pt-[39px] pb-[54px] pl-[54px] w-full h-full flex flex-col gap-[56px]">
-            <Navbar />
-            <div class="flex items-center">
-                <Link class="rounded-full w-[43px] h-[43px] bg-[#525663] flex justify-center z-10" href="/dashboard">
-                    <i class="pi pi-chevron-left text-white hover:text-gray-400 my-auto"></i>
-                </Link>
-                <div class="ml-[-30px] rounded-r-[18px] h-[36px] flex justify-center z-0" style="background: linear-gradient(270deg, #ADADAD 0%, rgba(196, 196, 196, 0) 93.22%);">
-                    <h5 class="my-auto mr-[57px] ml-[79px] text-white font-semibold tracking-[0.1em]">INFO MATERIAL</h5>
+    <MainLayoutStaff>
+        <div class="flex-1 flex flex-col gap-[2rem] mt-[1rem]">
+            <div class="flex gap-[2rem] h-[15%]">
+                <div class="bg-white flex-1 rounded-[1.5rem] flex items-center">
+                    <i class="pi pi-th-large mx-[2rem] text-[48px] text-[#86D277]"></i>
+                    <div class="flex-1 flex flex-col justify-center mb-[0.5rem]">
+                        <p class="text-[24px] font-semibold text-[#606378]">{{ info.available_material }} Material</p>
+                        <p class="text-[14px] text-[#606378]">Tersedia</p>
+                    </div>
+                </div>
+                <div class="bg-white flex-1 rounded-[1.5rem] flex items-center">
+                    <i class="pi pi-th-large mx-[2rem] text-[48px] text-[#EE406D]"></i>
+                    <div class="flex-1 flex flex-col justify-center mb-[0.5rem]">
+                        <p class="text-[24px] font-semibold text-[#606378]">{{ info.unavailable_material }} Material</p>
+                        <p class="text-[14px] text-[#606378]">Tidak tersedia</p>
+                    </div>
                 </div>
             </div>
-            <div class="flex gap-[56px] mt-[32px]">
-                <div class="flex flex-col flex-1 mr-[54px] pb-[30px] px-[30px] rounded-[30px]" style="background: linear-gradient(180deg, rgba(173, 173, 173, 0) 18.97%, rgba(173, 173, 173, 0.5) 65.62%);">
-                    <DataTable :value="products" tableStyle="min-width: 50rem">
-                        <Column headerClass="bg-[#282A39] text-white" field="id" header="ID"></Column>
-                        <Column headerClass="bg-[#282A39] text-white" field="material" header="Material"></Column>
-                        <Column headerClass="bg-[#282A39] text-white" field="jumlah" header="Jumlah"></Column>
+            <div class="bg-white flex-1 rounded-[1.5rem] p-[0.5rem]">
+                <div class="card h-full">
+                    <DataTable removableSort v-model:filters="filters" :value="data" paginator :rows="5" dataKey="id" :loading="loading" class="bg-white rounded-[1rem] flex flex-col h-full" headerClass="bg-white"
+                            :globalFilterFields="['description']">
+                        <template #header>
+                            <div class="flex justify-end">
+                                <span class="p-input-icon-right">
+                                    <InputText v-model="filters['global'].value" placeholder="Keyword Search" class="p-inputtext-sm border-[1.5px] border-[#F8F8F9] bg-[#F8F8F9] rounded-[0.5rem] h-[42px]"/>
+                                    <i class="pi pi-search" />
+                                </span>
+                            </div>
+                        </template>
+                        <template #empty> No data found. </template>
+                        <template #loading> Loading data. Please wait. </template>
+                        <Column sortable field="description" header="Material" style="min-width: 12rem">
+                            <template #body="{ data }">
+                                {{ data.description }}
+                            </template>
+                        </Column>
+                        <Column sortable field="quantity" header="Jumlah" style="min-width: 12rem">
+                            <template #body="{ data }">
+                                {{ data.quantity }}
+                            </template>
+                        </Column>
+                        <Column sortable field="status" header="Status" style="width: 12rem">
+                            <template #body="{ data }">
+                                <Tag :severity="data.quantity == 0 ? 'danger' : 'success'" :value="data.quantity == 0 ? 'Tidak Tersedia' : 'Tersedia'" class="w-full"></Tag>
+                            </template>
+                        </Column>
                     </DataTable>
-                </div>
-                <div class="w-[302px] mr-[54px] flex flex-col gap-[32px]">
-                    
                 </div>
             </div>
         </div>
-    </div>
+    </MainLayoutStaff>
 </template>
 
 <script>
@@ -32,11 +59,13 @@ import InputText from 'primevue/inputtext';
 import Dropdown from 'primevue/dropdown';
 import Calendar from 'primevue/calendar';
 import Chart from 'primevue/chart';
-import Navbar from "../../Components/Navbar.vue";
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup'; 
 import Row from 'primevue/row';   
+import MainLayoutStaff from '../../Layouts/Staff/MainLayout.vue';
+import { FilterMatchMode } from 'primevue/api';
+import Tag from 'primevue/tag';
 
 
 export default {
@@ -45,11 +74,22 @@ export default {
         Dropdown,
         Calendar,
         Chart,
-        Navbar,
         DataTable,
         Column,
         ColumnGroup,
-        Row
+        Row,
+        MainLayoutStaff,
+        Tag
+    },
+    props: {
+        info: {
+            type: Object,
+            default: () => ({})
+        },
+        listData: {
+            type: Array,
+            default: () => []
+        }
     },
     setup(props) {
         const formState = ref({
@@ -182,6 +222,48 @@ export default {
             },
         ]
         
+        const data = ref(props.listData);
+        
+        const filters = ref({
+            global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+            'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+            representative: { value: null, matchMode: FilterMatchMode.IN },
+            status: { value: null, matchMode: FilterMatchMode.EQUALS },
+            verified: { value: null, matchMode: FilterMatchMode.EQUALS }
+        });
+        
+        const statuses = ref(['unqualified', 'qualified', 'new', 'negotiation', 'renewal', 'proposal']);
+        const loading = ref(false);  
+        const formatDate = (value) => {
+            return value.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+        };
+        const formatCurrency = (value) => {
+            return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        };
+        const getSeverity = (status) => {
+            switch (status) {
+                case 'unqualified':
+                    return 'danger';
+
+                case 'qualified':
+                    return 'success';
+
+                case 'new':
+                    return 'info';
+
+                case 'negotiation':
+                    return 'warning';
+
+                case 'renewal':
+                    return null;
+            }
+        }
+        
 
         return {
             formState,
@@ -198,7 +280,14 @@ export default {
             setChartData,
             setChartOptions,
             changeChart,
-            products
+            products,
+            data,
+            filters,
+            statuses,
+            loading,
+            formatDate,
+            formatCurrency,
+            getSeverity,
         }
     }
 }

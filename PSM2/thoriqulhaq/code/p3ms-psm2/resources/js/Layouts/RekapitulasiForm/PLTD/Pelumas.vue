@@ -1,24 +1,26 @@
 <template>
-    <div class="flex w-full h-full px-[34px] py-[40px] gap-[61px]">
+    <div class="flex w-full h-full gap-[61px]">
         <div class="flex-1">
-            <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">PEMAKAIAN PELUMAS</h2>
-            <RekapitulasiInput 
-                value="MESIN 1" 
-                :model="{
-                    name: 'mesin_1_th',
-                    value: formState.mesin_1_th
-                }"
-                :updateFormState="updateFormState"
-                unit="L"
-            />
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Pemakaian Pelumas</h2>
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiInput 
+                    :value="'Mesin '+engine" 
+                    :model="{
+                        name: 'engine_'+engine,
+                        value: formState['engine_'+engine]
+                    }"
+                    :updateFormState="updateFormState"
+                    unit="L"
+                />
+            </template>
         </div>
         <div class="flex-1">
-            <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">STOK PELUMAS</h2>
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Stok Pelumas</h2>
             <RekapitulasiInput 
                 value="STOK AWAL" 
                 :model="{
-                    name: 'mesin_1_mp3',
-                    value: formState.mesin_1_mp3
+                    name: 'first_lubricant_stock',
+                    value: formState.first_lubricant_stock
                 }"
                 :updateFormState="updateFormState"
                 unit="L"
@@ -26,8 +28,8 @@
             <RekapitulasiInput 
                 value="STOK PENERIMAAN" 
                 :model="{
-                    name: 'mesin_1_mp3',
-                    value: formState.mesin_1_mp3
+                    name: 'receipt_lubricant_stock',
+                    value: formState.receipt_lubricant_stock
                 }"
                 :updateFormState="updateFormState"
                 unit="L"
@@ -37,35 +39,46 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { usePage } from '@inertiajs/vue3';
 import RekapitulasiInput from '../../../Components/RekapitulasiInput.vue';
+
 export default {
     components: {
         RekapitulasiInput
     },
     props: {
-        
+        formState: {
+            type: Object,
+            required: true
+        },
+        data : {
+            type: Object,
+            default : {}
+        }
     },
     setup(props) {
-        const formState = ref({
-            daya_terpasang : 0,
-            daya_mampu : 0,
-            beban : 0,
-            stand_awal : 0,
-            stand_akhir : 0,
-            kwh_produksi : 0,
-        })
+        const page = usePage();
+        
+        const initialData = {
+            first_lubricant_stock : props.data.detail?.first_lubricant_stock ?? 0,
+            receipt_lubricant_stock : props.data.detail?.receipt_lubricant_stock ?? 0,
+        }
+        
+        for (let i = 1; i <= page.props.user.engine_quantity; i++) {
+            initialData['engine_'+i] = props.data.detail?.['engine_'+i] ?? 0
+        }
+        
+        Object.assign(props.formState, initialData);
         
         const updateFormState = (model, isNumber = false) => {
             if (isNumber) {
-                formState.value[model.name] = Number(model.value);
+                props.formState[model.name] = Number(model.value);
             } else {
-                formState.value[model.name] = model.value;
+                props.formState[model.name] = model.value;
             }
         };
         
         return {
-            formState,
             updateFormState
         }
     }

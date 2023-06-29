@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#nprogress .bar {
+    height: 0.25rem !important;
+}
+
 .p-tieredmenu.p-tieredmenu-overlay {
     top: 92px !important;
     padding: 0.8rem 0 !important;
@@ -10,6 +14,11 @@
 
 .p-dropdown-item {
     padding: 0.656rem 1.25rem !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: #12A5B8 !important;
+    background-color: #e5f0f2 !important;
 }
 
 /* Custom date-picker */
@@ -32,8 +41,8 @@
 }
 
 .p-calendar .p-button {
-    background: white !important;
-    border: 1px solid white !important;
+    background: #F8F8F9 !important;
+    border: 1px solid #F8F8F9 !important;
     color: #747C84 !important;
 }
 
@@ -47,21 +56,137 @@
 /* Custom table */
 
 .p-datatable .p-datatable-thead > tr > th:first-child {
-    border-top-left-radius: 1rem !important;
+    border-top-left-radius: 0.5rem !important;
 }
 
 .p-datatable .p-datatable-thead > tr > th:last-child {
-    border-top-right-radius: 1rem !important;
+    border-top-right-radius: 0.5rem !important;
 }
 
 .p-datatable .p-datatable-tbody > tr:last-child > td:first-child {
-    border-bottom-left-radius: 1rem !important;
-    border-width : 0 0 0 0;
+    border-bottom-left-radius: 0.5rem !important;
+    /* border-width : 0 0 0 0; */
 }
 
 .p-datatable .p-datatable-tbody > tr:last-child > td:last-child {
-    border-bottom-right-radius: 1rem !important;
-    border-width : 0 0 0 0;
+    border-bottom-right-radius: 0.5rem !important;
+    /* border-width : 0 0 0 0; */
 }
 
 /* End custom table */
+
+
+/* Custom table 2 */
+
+.p-datatable .p-datatable-header {
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    background-color: white !important;
+    border: none !important;
+}
+
+.p-datatable-wrapper {
+    flex: 1 !important;
+}
+
+.p-datatable-wrapper > .p-datatable-table > .p-datatable-thead > tr > th {
+    background-color: #F9F9F9 !important;
+}
+
+.p-paginator-bottom {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+.p-datatable .p-paginator-bottom {
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+    border: none !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: none !important;
+    border-color: none !important;
+    color: #12A4B9 !important;
+    font-size: 13px !important;
+}
+
+.p-link {
+    font-size: 13px !important;
+}
+
+.p-paginator {
+    border-radius: 1rem !important;
+    justify-content: end !important;
+}
+
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+    margin: 0 !important;
+    height: 2.25rem !important;
+    min-width : 2.25rem !important
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    margin: 0 !important;
+    height: 2.25rem !important;
+    min-width : 2.25rem !important
+}
+
+.p-paginator-icon {
+    font-size: 13px !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    border: none !important;
+    font-size: 14px !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    border-width : 0 0 1px 0 !important;
+    border-color : #F4F4F5 !important;
+    font-size: 14px !important;
+}
+
+.p-datatable-wrapper {
+    margin-right: 1rem !important;
+    margin-left: 1rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* End custom table 2 */
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+    box-shadow: 0 0 0 0.1rem #AAE2EA !important;
+}
+
+.recap-input-table .p-datatable-wrapper {
+    margin: 0 !important;
+}
+
+.p-datepicker .p-timepicker button {
+    height: 1.5rem !important;
+    width: 1.375rem !important;
+}
+
+.p-datepicker .p-timepicker span {
+    font-size: 0.875rem !important;
+}
+
+.p-datepicker .p-timepicker .pi {
+    font-size: 1rem !important;
+}
+
+.p-datepicker {
+    border-radius: 0.75rem !important;
+}

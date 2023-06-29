@@ -1,39 +1,43 @@
 <template>
-    <div class="flex flex-col w-full h-full px-[34px] py-[40px] ">
-        <div class="flex flex-1 gap-[61px]">
-            <div class="flex-1">
-                <RekapitulasiResult
-                    value="PENERIMAAN DO"
-                    data="100"
-                    unit="JAM"
-                />
-                <RekapitulasiResult
-                    value="PENERIMAAN FISIK"
-                    data="100"
-                    unit="JAM"
-                />
-            </div>
-            <div class="flex-1">
-            </div>
+    <div class="flex flex-col mt-[20px]">
+        <div class="flex w-full h-full px-[20px] gap-[61px]">
+        <div class="flex-1">
+            <RekapitulasiResult
+                :value="'Penerimaan DO'" 
+                :data="data?.detail?.['do_reception']"
+                unit="L"
+            />
         </div>
-        <div class="flex flex-1 gap-[61px]">
-            <div class="flex-1">
-                <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">BEBAN</h2>
-                <RekapitulasiResult
-                    value="MESIN 1"
-                    data="100"
-                    unit="KW"
-                />
-            </div>
-            <div class="flex-1">
-                <h2 class="mb-[42px] tracking-[0.1em] text-white text-[28px] font-semibold">JAM OPERASI BEBAN</h2>
-                <RekapitulasiResult
-                    value="MESIN 1"
-                    data="100"
-                    unit="JAM"
-                />
-            </div>
+        <div class="flex-1">
+            <RekapitulasiResult
+                :value="'Penerimaan Fisik'" 
+                :data="data?.detail?.['physical_reception']"
+                unit="L"
+            />
         </div>
+    </div>
+    <div class="flex w-full h-full px-[20px] gap-[61px]">
+        <div class="flex-1">
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Tangki Induk</h2>
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiResult
+                :value="'Mesin '+engine" 
+                    :data="data?.detail?.['engine_'+engine+'_ti']"
+                    unit="L"
+                />
+            </template>
+        </div>
+        <div class="flex-1">
+            <h2 class="mb-[42px] tracking-[0.1em] text-[#A1A5B6] text-[18px] font-semibold">Tangki Harian</h2>
+            <template v-for="(engine) in $page.props.user.engine_quantity" :key="engine">
+                <RekapitulasiResult
+                :value="'Mesin '+engine" 
+                    :data="data?.detail?.['engine_'+engine+'_th']"
+                    unit="L"
+                />
+            </template>
+        </div>
+    </div>
     </div>
 </template>
 

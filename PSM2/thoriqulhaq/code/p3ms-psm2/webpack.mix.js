@@ -13,7 +13,15 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue(3)
+    .vue({
+        options: {
+            compilerOptions: {
+            isCustomElement: (tag) => ['Button'].includes(tag),
+            },
+        },
+    })
     .postCss('resources/css/app.css', 'public/css', [
         require("tailwindcss")
     ])
+    .postCss('resources/css/report.css', 'public/css')
     .version();

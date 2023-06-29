@@ -1,27 +1,36 @@
 <template>
-    <div class="bg-[url('/images/BG_P3MS.png')] bg-cover h-screen">
-            <div class="w-full h-full flex justify-between">
-                <div>
-                    <img src="/images/LOGO_1_P3MS.png" alt="P3MS" class="w-[114px] my-[39px] mx-[54px]"/>
-                </div>
-                <div class="bg-white w-[550px] flex flex-col justify-center items-center px-[96px]">
-                    <h3 class="text-[30px] font-light">Selamat Datang di Torpedo !</h3>
-                    <h5 class="text-[#ADADAD]">Kamu akan segera masuk sebagai staff.</h5>
-                    <div class="my-[54px] w-full">
-                        <div class="mb-[32px] w-full">
-                            <p class="mb-[10px] font-semibold">Username</p>
-                            <InputText type="text" v-model="formState.username" class="w-full p-inputtext-sm" required/>
+    <div class="bg-[#F4F4F5] bg-cover h-screen relative">
+            <div class="w-full h-full flex justify-center">
+                <div class="bg-white rounded-[2rem] w-[550px] my-[6rem] flex flex-col justify-center items-center px-[96px]">
+                    <div>
+                        <img src="/images/LOGO_PLN.svg" alt="P3MS" class="w-[220px] my-[39px] mx-[54px]"/>
+                    </div>
+                    <p class="text-[#ADADAD] text-[14px]">Sistem Pemantau Performa Pembangkit Listrik</p>
+                    <form 
+                        @submit.prevent="formState.post(route('login.post'))" 
+                        class="my-[54px] w-full"
+                    >
+                        <div class="mb-[1.5rem] w-full">
+                            <p class="mb-[10px] text-[14px] font-semibold text-[#616278]">Username</p>
+                            <InputText type="text" v-model="formState.username" class="w-full p-inputtext-sm bg-[#F8F8F9] border-[1.5px] border-[#F8F8F9] rounded-[0.5rem] h-[42px]" required/>
                         </div>
-                        <div class="mb-[32px] w-full">
-                            <p class="mb-[10px] font-semibold">Password</p>
-                            <Password class="w-full" v-model="formState.password" :feedback="false" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm"
+                        <div class="mb-[1.5rem] w-full">
+                            <p class="mb-[10px] text-[14px] font-semibold text-[#616278]">Password</p>
+                            <Password class="w-full border-[1.5px] border-[#F8F8F9] rounded-[0.5rem]" v-model="formState.password" :feedback="false" :inputStyle="{ 'width': '100%' }" inputClass="p-inputtext-sm bg-[#F8F8F9] border-[1.5px] border-[#F8F8F9] rounded-[0.5rem] h-[42px]"
                                 toggleMask required />
                         </div>
-                        <Button label="Masuk" class="w-full bg-[#282A39] hover:bg-[#282A39] border-[#282A39] mt-[45px]" />
-                    </div>
-                    <h5 class="text-[#ADADAD] mt-[20px]">
-                        Masuk sebagai admin ? <span class="text-[#282A39] font-semibold">Admin</span>
+                        <button type="submit" class="text-[14px] text-white  rounded-[0.5rem] w-full bg-[#14A3B8] hover:bg-[#14A3B8] border-[#14A3B8] mt-[2rem] h-[42px]">
+                            Masuk
+                        </button>
+                    </form>
+                    <h5 class="text-[#ADADAD] mt-[20px] text-[14px]">
+                        Masuk sebagai staff ? <span class="text-[#14A3B8] font-semibold"><Link href="/login">Staff</Link></span>
                     </h5>
+            </div>
+            <div class="absolute top-0 right-0">
+                <div class="bg-white rounded-bl-[0.5rem] flex justify-center items-center py-[0.75rem] px-[1.5rem]">
+                    <p class="text-[#14A3B8] text-[14px] italic">Administrator</p>
+                </div>
             </div>
         </div>
     </div>
@@ -29,21 +38,20 @@
 
 <script>
 import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
 import Password from 'primevue/password';
-import { ref } from "vue";
+import { useForm } from '@inertiajs/vue3';
 
 export default {
     components: {
         InputText,
-        Button,
         Password
     },
     setup(props) {
-        const formState = ref({
+        const formState = useForm({
             username: '',
-            password: ''
-        });
+            password: '',
+            user_type: ['Admin'],
+        })
 
         return {
             formState
