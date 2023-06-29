@@ -6,7 +6,11 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      ringColor: {
+        DEFAULT: '#000000', // This changes the default ring color to black
+      }
+    }
   },
   plugins: [],
   important: true,

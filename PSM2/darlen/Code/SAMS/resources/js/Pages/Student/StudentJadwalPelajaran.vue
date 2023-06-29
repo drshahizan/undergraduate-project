@@ -1,46 +1,34 @@
 <template>
-    <div class="h-screen relative custom-bg-color">
+    <StudentLayout :page-title="'Jadwal Pelajaran'">
+        <DataTable class="mx-[2rem] " v-model:filters="filters" :value="products" tableStyle="min-width: 70rem "
+            dataKey="id" :loading="loading" :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
+            editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table">
 
-        <StudentSidebar />
-    <div class="flex justify-end items-end mx-12 mt-12">
-    <Button type="button" label="Unduh"
-                                severity="success" />
-        </div>
-         <div class="flex justify-start items-start mx-12 mt-2 mb-0">
-        <h1 class="text-2xl font-bold">
-            Kelas : 10 IPA 1
-        </h1>
-            </div>
-        <div class="flex justify-center items-center mt-6">
-            <DataTable class="rounded-md border-2 border-zinc-50" v-model:filters="filters" :value="products" showGridlines
-                tableStyle="min-width: 90rem " dataKey="id" filterDisplay="row" :loading="loading"
-                :globalFilterFields="['name', 'country.name', 'representative.name', 'status']" editMode="cell"
-                @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table">
+            <template #header>
+                <div class="flex justify-end items-end">
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Tahun Ajaran"
+                        class="flex-1 w-[12rem] md:w-8rem mr-6" />
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Semester"
+                        class="flex-1 w-[10rem] md:w-8rem mr-6" />
+                    <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Kelas"
+                        class="flex-1 w-[10rem] md:w-8rem mr-6" />
 
-                <!-- <template #header>
-            <div class="flex justify-end items-end">
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
-                    <InputText  placeholder="Keyword Search" />
-                </span>
-            </div>
-       </template> -->
+                </div>
+            </template>
 
-                <Column field="name" header=""></Column>
-                <Column field="matpel" header="1"></Column>
-                <Column field="matpel" header="2"></Column>
-                <Column field="matpel" header="3"></Column>
-                <Column field="matpel" header="4"></Column>
-                <Column field="matpel" header="5"></Column>
-                <Column field="matpel" header="6"></Column>
-                <Column field="matpel" header="7"></Column>
-                <Column field="matpel" header="8"></Column>
-                <!-- <Column header="Action"> <template #body=""><Button type="button" label="Edit"
-                            severity="success" /></template> </Column> -->
+            <Column style="min-width: 6rem" class="" field="name" header=""></Column>
+            <Column style="min-width: 6rem" field="matpel" header="1"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="2"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="3"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="4"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="5"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="6"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="7"></Column>
+            <Column style="min-width: 6rem" field="matpel" header="8"></Column>
 
-            </DataTable>
-        </div>
-    </div>
+        </DataTable>
+
+    </StudentLayout>
 </template>
 
 <script >
@@ -50,18 +38,19 @@ import Menubar from 'primevue/menubar';
 import 'primeicons/primeicons.css';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import StudentSidebar from "../../Components/StudentSidebar";
+import StudentLayout from '../../Layouts/StudentLayout.vue';
 import { ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
-
+import Dropdown from 'primevue/dropdown';
+import { FilterMatchMode } from 'primevue/api';
 
 export default {
     components: {
         Button,
-        StudentSidebar,
+        StudentLayout,
         InputText,
         Divider,
         DataTable,
@@ -69,6 +58,7 @@ export default {
         ColumnGroup,
         Row,
         Menubar,
+        Dropdown,
     },
 
     setup(props) {
@@ -96,43 +86,45 @@ export default {
             {
                 id: '4',
                 name: 'Kamis',
-                matpel: 'Matematika',
+                matpel: 'Fisika',
 
             },
             {
                 id: '5',
                 name: 'Jumat',
-                matpel: 'Matematika',
+                matpel: 'Fisika',
 
             },
             {
                 id: '6',
                 name: 'Sabtu',
-                matpel: 'Matematika',
+                matpel: 'Fisika',
 
             },
             {
                 id: '7',
                 name: 'Minggu',
-                matpel: 'Matematika',
+                matpel: 'Biologi',
 
             },
 
-        ]
+        ];
+
+        const filters = ref({
+            global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+            'country.name': { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+            representative: { value: null, matchMode: FilterMatchMode.IN },
+            status: { value: null, matchMode: FilterMatchMode.EQUALS },
+            verified: { value: null, matchMode: FilterMatchMode.EQUALS }
+        });
+
         return {
             visible: visible,
             products: products,
-            menuItems: [
-                {
-                    label: 'User',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        { label: 'Profile', icon: 'pi pi-fw pi-user' },
-                        { label: 'Settings', icon: 'pi pi-fw pi-cog' },
-                        { label: 'Logout', icon: 'pi pi-fw pi-sign-out' },
-                    ],
-                },
-            ],
+            filters: filters,
+
+
         }
     }
 }

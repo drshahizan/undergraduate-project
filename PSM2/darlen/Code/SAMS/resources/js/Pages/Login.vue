@@ -5,48 +5,57 @@
         </div>
 
         <div class="flex justify-center items-center h-full">
-            <div class="bg-green-100 rounded-lg shadow-xl p-10">
+            <div class="wrapper-color rounded-lg shadow-xl p-10">
                 <h1 class="flex justify-center text-2xl font-bold mb-2">Login</h1>
-                <p class=" mb-2"> Selamat datang di Student Academic Management System </p>
+                <p class="mb-2">Selamat datang di Student Academic Management System</p>
                 <Divider class="border-black" />
                 <div class="p-grid">
-                    <div class="p-col-12 p-md-6 flex justify-center ">
-                        <InputText class="w-full "  placeholder="Username" />
+                    <div class="p-col-12 p-md-6 flex justify-center">
+                        <InputText v-model="form.username" class="w-full" placeholder="Username" />
                     </div>
                     <br />
-                    <div class="p-col-12 p-md-6 flex justify-center ">
-                        <InputText class="w-full" placeholder="Password" />
+                    <div class="p-col-12 p-md-6 flex justify-center">
+                        <InputText v-model="form.password" type="password" class="w-full" placeholder="Password" />
                     </div>
                 </div>
                 <Divider />
-                <div class="p-grid ">
-                    <div  class="flex justify-center ">
-                        <a class="w-full" href="/dashboard-guru"><Button  class="w-full" severity="success" raised label="Login" /></a>
+                <div class="p-grid">
+                    <div class="flex justify-center">
+                        <Button @click="submitForm" class="w-full login-button" raised label="Login" />
                     </div>
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </template>
 
-<script >
+<script>
 import Divider from 'primevue/divider';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import { ref } from 'vue';
-
-
+import { useForm } from '@inertiajs/vue3';
 
 export default {
     components: {
         Divider,
         InputText,
-        Button
+        Button,
     },
 
-    setup(props) {
-        return {
+    setup() {
+        const form = useForm({
+            username: '',
+            password: '',
+        });
+
+        function submitForm() {
+            form.post('/login');
         }
-    }
-}
+
+        return {
+            form,
+            submitForm,
+        };
+    },
+};
 </script>

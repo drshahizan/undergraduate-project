@@ -1,132 +1,162 @@
 <template>
-    <div class="h-screen relative custom-bg-color">
-        
-        <TeacherSidebar/>  
+    <TeacherLayout :page-title="'Jadwal Pelajaran'">
+        <div class="flex-1 ">
+            <Dropdown v-model="selectedClassroom" :options="classrooms" optionLabel="grade" placeholder="Kelas"
+                class="flex-1 w-[10rem] md:w-8rem mr-6 mx-[2rem] mb-6" @update:modelValue="getClassTimetable" />
+            <DataTable class="mx-[2rem] mb-4" v-model:filters="filters" :value="timetable" tableStyle="min-width: 70rem"
+                dataKey="id" :loading="loading" :globalFilterFields="['classroom_id']" editMode="cell"
+                @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table">
 
-        
+                <Column style="min-width: 6rem" class="" field="day" header="Hari"></Column>
 
-        <div class="flex justify-center items-center mt-12 jadwal">
-        <DataTable class="jadwal" v-model:filters="filters"  :value="products" 
-         tableStyle="min-width: 90rem " dataKey="id" filterDisplay="row" :loading="loading"
-            :globalFilterFields="['name', 'country.name', 'representative.name', 'status']"
-            editMode="cell" @cell-edit-complete="onCellEditComplete" tableClass="editable-cells-table">
-        
-        <!-- <template #header>
-            <div class="flex justify-end items-end">
-                <span class="p-input-icon-left">
-                    <i class="pi pi-search" />
-                    <InputText  placeholder="Keyword Search" />
-                </span>
-            </div>
-       </template> -->
-       
-        <Column class="" field="name" header="" ></Column>
-        <Column field="matpel" header="1" ></Column>
-        <Column field="matpel" header="2" ></Column>
-        <Column field="matpel" header="3" ></Column>
-        <Column field="matpel" header="4" ></Column>
-        <Column field="matpel" header="5" ></Column>
-        <Column field="matpel" header="6" ></Column>
-        <Column field="matpel" header="7" ></Column>
-        <Column field="matpel" header="8" ></Column>
-        <Column  header="Action"> <template #body=""><Button type="button" label="Edit" severity="success" /></template> </Column>
+                <Column field="hour_1_subject_id" style="min-width: 6rem" header="1">
+                    <template #body="slotProps">
+                        <Dropdown :modelValue="getSubject(slotProps.data.hour_1_subject_id)" :options="subjects"
+                            optionLabel="subjectName" @update:modelValue="getSubject(slotProps.data.hour_1_subject_id)">
+                        </Dropdown>
+                    </template>
+                </Column>
 
-        </DataTable>
+                <Column field="hour_2_subject_id" style="min-width: 6rem" header="2">
+                    <template #body="slotProps">
+                        <Dropdown :modelValue="getSubject(slotProps.data.hour_2_subject_id)" :options="subjects"
+                            optionLabel="subjectName" @update:modelValue="getSubject(slotProps.data.hour_2_subject_id)">
+                        </Dropdown>
+                    </template>
+                </Column>
+
+                <Column field="hour_3_subject_id" style="min-width: 6rem" header="3">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_3_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_3_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="hour_4_subject_id" style="min-width: 6rem" header="4">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_4_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_4_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="hour_5_subject_id" style="min-width: 6rem" header="5">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_5_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_5_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="hour_6_subject_id" style="min-width: 6rem" header="6">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_6_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_6_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="hour_7_subject_id" style="min-width: 6rem" header="7">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_7_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_7_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column field="hour_8_subject_id" style="min-width: 6rem" header="8">
+                    <template>
+                        <Dropdown :modelValue="slotProps.data.hour_8_subject_id" :options="subjects"
+                            optionLabel="subjectName"
+                            @update:modelValue="slotProps.data.hour_8_subject_id = $event === -1 ? null : $event">
+                        </Dropdown>
+                    </template>
+                </Column>
+                <Column style="min-width: 6rem" header="Action">
+                    <template #body="">
+                        <Button type="button" label="Edit" severity="success" />
+                        <Button type="button" label="Save" severity="info" @click="saveTimetable(slotProps.data)" />
+                    </template>
+                </Column>
+            </DataTable>
         </div>
-    </div>
+    </TeacherLayout>
 </template>
 
 <script >
 
-import Divider from 'primevue/divider';
 import Menubar from 'primevue/menubar';
 import 'primeicons/primeicons.css';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import TeacherSidebar from "../../Components/TeacherSidebar";
+import TeacherLayout from '../../Layouts/TeacherLayout.vue';
 import { ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import ColumnGroup from 'primevue/columngroup';   // optional
 import Row from 'primevue/row';                   // optional
+import { Inertia } from '@inertiajs/inertia';
+import { FilterMatchMode } from 'primevue/api';
+import Dropdown from 'primevue/dropdown';
 
 
 export default {
     components: {
         Button,
-        TeacherSidebar,
+        TeacherLayout,
         InputText,
-        Divider,
         DataTable,
         Column,
         ColumnGroup,
         Row,
         Menubar,
+        Dropdown,
+
     },
-    
+    props: {
+        classrooms: Array,
+        timetable: Array,
+        subjects: Array,
+    },
     setup(props) {
-        const visible = ref(false);
-        const products = [
-            {
-                id: '1',
-                name: 'Senin',
-                matpel: 'Matematika',
+        const selectedClassroom = ref(null);
+        const classrooms = ref(props.classrooms);
+        const timetable = ref(props.timetable);
+        const subjects = ref(props.subjects);
+        const filters = ref({
+            classroom_id: { value: null, matchMode: FilterMatchMode.EQUALS },
+            semester: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            academicYear: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+            name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+        });
 
-            },
-            {
-                id: '2',
-                name: 'Selasa',
-                matpel: 'Matematika',
+        const getSubject = (id) => { return subjects.value.find(subject => subject.id === id) };
 
-                
-            },
-            {
-                id: '3',
-                name: 'Rabu',
-                matpel: 'Matematika',
+        const getClassTimetable = () => {
+            if (selectedClassroom.value) {
+                Inertia.visit('/jadwal-pelajaran/' + selectedClassroom.value.id);
+            }
+        };
 
-            },
-            {
-                id: '4',
-                name: 'Kamis',
-                matpel: 'Matematika',
 
-            },
-            {
-                id: '5',
-                name: 'Jumat',
-                matpel: 'Matematika',
-
-            },
-            {
-                id: '6',
-                name: 'Sabtu',
-                matpel: 'Matematika',
-
-            },
-            {
-                id: '7',
-                name: 'Minggu',
-                matpel: 'Matematika',
-
-            },
-            
-        ]
         return {
-            visible: visible,
-            products: products,
-            menuItems: [
-                {
-                    label: 'User',
-                    icon: 'pi pi-fw pi-user',
-                    items: [
-                        { label: 'Profile', icon: 'pi pi-fw pi-user' },
-                        { label: 'Settings', icon: 'pi pi-fw pi-cog' },
-                        { label: 'Logout', icon: 'pi pi-fw pi-sign-out' },
-                    ],
-                },
-            ],
+            selectedClassroom,
+            classrooms,
+            timetable,
+            subjects,
+            getClassTimetable,
+            filters,
+            getSubject,
+
         }
-    }
+    },
+
+    watch: {
+        selectedClassroom() {
+            this.getClassTimetable();
+        },
+    },
 }
 </script>

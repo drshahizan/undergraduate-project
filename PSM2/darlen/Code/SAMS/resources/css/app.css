@@ -5,23 +5,35 @@
 
 html, body{
     font-family: 'Open Sans', sans-serif !important;
+    background: #76efa2 !important;
+        background-size: cover !important;
 }
 .p-divider.p-divider-horizontal:before {
     border-top-color: black !important;
 }
 
-
+.wrapper-color {
+    background: #33cea9 !important;
+}
 .p-sidebar {
-    background: linear-gradient(180.11deg, rgb(74 222 128) 90.4%, rgba(74, 222, 128, 0) 110.24%, rgba(74, 222, 128, 0) 110.24%) !important;
+    background: #028131 !important;
 }
 
+.footer-color{
+    background: #006f7b !important;
+}
 /* .p-datatable{
     border-radius: 10px !important;
 } */
 
 .p-datatable-header {
+    border-color: #33cea9 !important;
     border-top-right-radius: 10px !important;
 border-top-left-radius: 10px !important;
+background-color: #33cea9 !important;
+margin-bottom: -0.5rem !important;
+padding-bottom: 2rem !important;
+
 }
 
 /* .p-datatable-table {
@@ -52,16 +64,50 @@ border-top-left-radius: 10px !important;
 .p-paginator.p-component{
     border-top-left-radius: 0px !important;
         border-top-right-radius: 0 !important;
+        background-color: #d9eddf !important;
 }
+
+.table-with-paginator {
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.table-without-paginator {
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+.p-paginator-bottom {
+
+    border: 0px !important;
+}
+
+/* .p-paginator-page.p-paginator-element{
+    border-color: #000000 !important;
+}
+
+.p-paginator-next.p-paginator-element {
+    border-color: #000000 !important;
+}
+
+.p-paginator-last.p-paginator-element {
+    border-color: #000000 !important;
+} */
 
 /* .p-datatable-wrapper {
     border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
 } */
 
-.p-datatable-wrapper.jadwal {
+/* .p-datatable-wrapper.jadwal {
     border-radius: 10px !important;
-  
+} */
+.p-datatable .p-datatable-thead>tr>th:first-child {
+    border-top-left-radius: 0.5rem !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th:last-child {
+    border-top-right-radius: 0.5rem !important;
 }
 
 .p-tree-toggler-icon {
@@ -72,6 +118,10 @@ border-top-left-radius: 10px !important;
     color: #000000 !important;
 }
 
+.p-treenode-leaf {
+     margin-top: 1rem !important;
+}
+
 .p-menuitem-icon {
     color: #000000 !important;
 }
@@ -80,15 +130,21 @@ border-top-left-radius: 10px !important;
     color: #000000 !important;
 }
 
+
 .p-tree {
-    background: linear-gradient(180.11deg, rgb(74 222 128) 90.09%, rgba(74, 222, 128, 0) 100.24%, rgba(74, 222, 128, 0) 100.24%) !important;
+    background: #33cea9!important;
+    border: 0px !important;
+    border-radius: 0px !important;
     color: #343a40 !important;
+    padding: 0rem !important;
+    padding-left: 0.5rem !important;
+    
 }
 
-.custom-bg-color {
+/* .custom-bg-color {
     background:  linear-gradient(105.81deg, rgba(74, 222, 128, 0.9) -18.16%, rgba(158, 255, 194, 0.9) 98.31%) !important;
     background-size: cover !important;
-}
+} */
 
 .highlight-page {
     
@@ -113,4 +169,47 @@ border-top-left-radius: 10px !important;
     font-size: 1.25rem ;
     font-weight: 500 ;
     color: #343a40 ;
+}
+
+.login-button {
+    background: #2f4858 !important;
+    border: 0px !important;
+}
+
+.p-paginator-page{
+    border-color: #000000 !important;
+    color: #000000 !important;
+    
+}
+
+.p-highlight{
+    background: #ffffff !important;
+}
+
+.p-paginator-last {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    border: 0px !important;
+}
+
+.p-paginator-next {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    border: 0px !important;
+}
+
+.p-paginator-prev {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    border: 0px !important;
+}
+
+.p-paginator-first {
+    border-color: #000000 !important;
+    color: #000000 !important;
+    border: 0px !important;
+}
+
+.p-menubar{
+    border: 0px !important;
 }

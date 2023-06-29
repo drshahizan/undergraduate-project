@@ -15,7 +15,7 @@
                         class="ml-4 mr-0 pi pi-users sidebar-icon"></i>Rapor</Link>
                     <Link :class="{ 'highlight-page': $page.url === '/jadwal-pelajaran-siswa' }" href="/jadwal-pelajaran-siswa"
                         class="text-xl flex flex-row gap-[10px] items-center"><i
-                        class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>jadwal-pelajaran</Link>
+                        class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>Jadwal Pelajaran</Link>
                     <Link :class="{ 'highlight-page': $page.url === '/spp-siswa' }" href="/spp-siswa"
                         class="text-xl flex flex-row gap-[10px] items-center"><i
                         class="ml-4 mr-0 pi pi-user-plus sidebar-icon"></i>SPP</Link>

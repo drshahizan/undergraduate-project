@@ -1,35 +1,42 @@
 <template>
-    <div class="h-screen relative custom-bg-color">
-
-        <StudentSidebar />
-
-
-
-        <div class="flex justify-center items-center mt-12 flex-col">
-            <h1 class="text-2xl font-bold">
+    <StudentLayout :page-title="'Dashboard'">
+        <div
+            class="flex-1 mb-[4rem] mx-[2rem] p-[1rem] flex justify-center items-center flex-col  rounded-lg wrapper-color">
+            <h1 class="text-2xl font-bold mb-4">
                 Selamat Datang di Student Academic Management System
-            </h1> <br><br><br><br><br>
-            <img src="/images/logo.png" class="h-30 w-96" />
+            </h1>
+            <img src="/images/logo.png" class="h-[5rem] w-[20rem] mb-4" />
             <h1 class="text-2xl font-bold">
                 Silahkan menggunakan menu navigasi di samping untuk mengakses berbagai fitur
             </h1>
         </div> <br><br><br>
-        <div class="mx-[20rem] p-[2rem] flex justify-center items-center flex-row bg-slate-100 rounded-md">
-            <Chart type="pie" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
-            <Chart type="bar" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
-            <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-[40rem] md:w-[30rem]" />
+
+        <div class="flex flex-row ">
+
+            <div class="mx-[2rem] p-[2rem] flex justify-start items-start flex-1 wrapper-color rounded-lg flex-col">
+
+                <Chart type="pie" :data="chartData" :options="chartOptions" class=" md:w-[20rem]" />
+
+
+            </div>
+            <div class="mx-[2rem] p-[2rem] flex justify-center items-center flex-1 wrapper-color rounded-lg">
+
+                <Chart type="doughnut" :data="chartData" :options="chartOptions" class="md:w-[20rem]" />
+
+            </div>
+
+            <div class="mx-[2rem] p-[2rem] flex justify-center items-center flex-1 wrapper-color rounded-lg">
+
+                <Chart type="bar" :data="chartData" :options="chartOptions" class=" md:w-[20rem]" />
+
+            </div>
         </div>
-    </div>
+    </StudentLayout>
 </template>
 
-<script >
+<script>
+import StudentLayout from '../../Layouts/StudentLayout.vue';
 import Chart from 'primevue/chart';
-import Divider from 'primevue/divider';
-import Menubar from 'primevue/menubar';
-import 'primeicons/primeicons.css';
-import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
-import StudentSidebar from "../../Components/StudentSidebar";
 import { ref } from 'vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
@@ -39,15 +46,11 @@ import Row from 'primevue/row';                   // optional
 
 export default {
     components: {
-        Button,
-        StudentSidebar,
-        InputText,
-        Divider,
+        StudentLayout,
         DataTable,
         Column,
         ColumnGroup,
         Row,
-        Menubar,
         Chart,
     },
 
@@ -58,7 +61,8 @@ export default {
             plugins: {
                 legend: {
                     labels: {
-                        usePointStyle: true
+                        usePointStyle: true,
+                        color: '#000000'
                     }
                 }
             }
@@ -72,7 +76,8 @@ export default {
                     {
                         data: [540, 325, 702],
                         backgroundColor: ["blue", "yellow", "green"],
-                        hoverBackgroundColor: ["blue", "yellow", "green"]
+                        hoverBackgroundColor: ["blue", "yellow", "green"],
+                        borderWidth: 0
                     }
                 ]
             };
