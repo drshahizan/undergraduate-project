@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microclimate Monitoring & Prediction Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        .site-selection {
+            text-align: center;
+        }
+        .heritage-site {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .heritage-site img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .heritage-site button {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .heritage-site button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Welcome to the Microclimate Monitoring & Prediction Dashboard</h1>
+        </div>
+    </header>
+    <main>
+        <section class="site-selection">
+            <h2>Select a Region</h2>
+            <div class="heritage-site">
+                <img src="a_famosa.jpg" alt="A Famosa Melaka">
+                <button onclick="window.location.href='dashboard_afamosa.html'">Melaka</button>
+            </div>
+            <div class="heritage-site">
+                <img src="sultan_ibrahim_building.jpg" alt="Sultan Ibrahim Building">
+                <button onclick="window.location.href='dashboard_sultan_ibrahim.html'">Johor Bahru</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

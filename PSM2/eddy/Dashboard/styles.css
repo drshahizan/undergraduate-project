@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f0f4f7;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.coordinates {
+    margin-left: 10px;
+    color: #ddd;
+    font-size: 12px;
+}
+
+.date-time {
+    text-align: right;
+    font-size: 14px;
+}
+
+.date-time a {
+    color: #ffdd57;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
+
+section {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+section h2 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.controls-and-live-weather {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.global-controls, .live-weather {
+    width: 48%;
+}
+
+.global-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.global-buttons button {
+    flex: 1;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.weather-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.weather-box {
+    text-align: center;
+    font-size: 12px;
+}
+
+.weather-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+.image-container {
+    height: calc(100% - 30px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.popup-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.heatmap-popup-content {
+    width: 95%;
+    max-width: 1400px;
+    height: 90vh;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popup-image {
+    width: 100%;
+    height: auto;
+}
+
+.year-buttons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.heatmap-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.heatmap-image {
+    width: calc(25% - 10px);
+    height: auto;
+    border-radius: 4px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.popup-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popup-buttons button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 1200px) {
+    .grid-layout {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .controls-and-live-weather {
+        flex-direction: column;
+    }
+    
+    .global-controls, .live-weather {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: auto;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title {
+        margin-bottom: 10px;
+    }
+
+    .heatmap-image {
+        width: calc(50% - 10px);
+    }
+}

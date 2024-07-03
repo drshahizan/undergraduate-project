@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microclimate Monitoring & Prediction Dashboard - Johor Bahru</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="sultan-ibrahim-dashboard">
+    <header>
+        <div class="header-content">
+            <div class="title">
+                <img src="UTM-LOGO.png" alt="Logo" class="logo">
+                <h1>Johor Bahru</h1>
+                <span class="coordinates">1.4560° N, 103.7602° E</span>
+            </div>
+            <div class="date-time">
+                <span id="current-date-time"></span>
+                <a href="https://www.google.com/maps/place/Sultan+Ibrahim+Building,+Jalan+Bukit+Timbalan,+Bandar+Johor+Bahru,+80000+Johor+Bahru,+Johor/@1.4577655,103.758475,17z/data=!3m1!4b1!4m6!3m5!1s0x31da12e831ff85d3:0x70b8bc4ec8bbcbb!8m2!3d1.4577601!4d103.7610499!16zL20vMGNoMDR3?entry=ttu">Go to Map</a>
+                <a href="index.html">Change Site</a>
+            </div>
+        </div>
+    </header>
+    <main class="grid-layout">
+        <section class="controls-and-live-weather">
+            <div class="global-controls">
+                <h2>Select Weather Parameter</h2>
+                <div class="global-buttons">
+                    <button onclick="changeAllGraphs('rainfall')">Rainfall</button>
+                    <button onclick="changeAllGraphs('temperature')">Temperature</button>
+                    <button onclick="changeAllGraphs('humidity')">Relative Humidity</button>
+                    <button onclick="changeAllGraphs('wind')">Wind Speed</button>
+                </div>
+            </div>
+            <div class="live-weather">
+                <h2>Live Weather</h2>
+                <div class="weather-content">
+                    <div class="weather-box">
+                        <div class="weather-icon">
+                            <img src="weather-icon.gif" alt="Weather Icon">
+                        </div>
+                        <div id="weather-description">Weather: Loading...</div>
+                    </div>
+                    <div class="weather-box">
+                        <div class="weather-icon">
+                            <img src="temperature-icon.gif" alt="Temperature Icon">
+                        </div>
+                        <div id="temperature">Temperature: Loading...</div>
+                    </div>
+                    <div class="weather-box">
+                        <div class="weather-icon">
+                            <img src="humidity-icon.gif" alt="Humidity Icon">
+                        </div>
+						<div id="humidity">Relative Humidity: Loading...</div>
+                    </div>
+                    <div class="weather-box">
+                        <div class="weather-icon">
+                            <img src="wind-speed-icon.gif" alt="Wind Speed Icon">
+                        </div>
+						<div id="wind-speed">Wind Speed: Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="predicted-values">
+            <h2>Predicted Values for 2024</h2>
+            <div class="image-container">
+                <img id="predicted-image" src="Predicted Values for Rainfall 2024 Johor Bahru.png" alt="Predicted Values for Rainfall 2024 JB">
+            </div>
+        </section>
+        <section class="average-trend">
+            <h2>Average Monthly Trend 1940 - 2023</h2>
+            <div class="image-container">
+                <img id="trend-image" src="Average%20Monthly%20Rainfall%20Trend%20Johor Bahru.png" alt="Average Monthly Rainfall Trend">
+            </div>
+        </section>
+        <section class="anomaly-plot">
+            <h2>Anomaly Plot 1940 - 2023</h2>
+            <div class="image-container">
+                <img id="anomaly-image" src="C:/Users/MSI/Documents/PSM/TRAINING/TRAINING/Dashboard/Johor Bahru/Anomaly Plot/Rainfall_Anomaly_Johor Bahru.png" alt="Rainfall Anomaly Plot for Johor Bahru">
+            </div>
+        </section>
+        <section class="last-5-years-trend">
+            <h2>Last 5 Years Trend 2019 - 2023</h2>
+            <div class="image-container">
+                <img id="last-5-years-trend-image" src="Johor Bahru/Johor Bahru_Rainfall_Bar_Graph.png" alt="Last 5 Years Rainfall Trend">
+            </div>
+        </section>
+        <section class="correlation-matrix">
+            <h2>Correlation Matrix</h2>
+            <div class="image-container">
+                <img src="Johor Bahru/correlation_matrix.png" alt="Correlation Matrix">
+            </div>
+        </section>
+        <section class="scatter-plots">
+            <h2>Scatter Plots 1940 - 2023</h2>
+            <div class="image-container">
+                <img id="scatter-plot-image" src="C:/Users/MSI/Documents/PSM/TRAINING/TRAINING/Dashboard/Johor Bahru/Scatter Plot/Rainfall_vs_Relative Humidity_Johor Bahru.png" alt="Rainfall vs Relative Humidity Scatter Plot for Johor Bahru">
+            </div>
+        </section>
+        <section class="prediction-comparison">
+            <h2>Actual vs Predicted 2023</h2>
+            <div class="image-container">
+                <img id="default-prediction-image" src="Johor Bahru/Rainfall_Johor Bahru_XGBoost.png" alt="Default Prediction Comparison">
+            </div>
+        </section>
+        <section class="heatmap">
+            <h2>Monthly Heatmaps</h2>
+            <div class="image-container">
+                <img id="heatmap-image" src="Heatmap/Rainfall 202301.png" alt="Monthly Heatmap">
+            </div>
+        </section>
+    </main>
+
+    <!-- Popup for Heatmaps -->
+    <div id="heatmap-popup" class="popup">
+        <div class="popup-content heatmap-popup-content">
+            <span class="close" onclick="closeHeatmapPopup()">&times;</span>
+            <h3 id="heatmap-title"></h3>
+            <div class="year-buttons">
+                <button onclick="changeHeatmapYear(2019)">2019</button>
+                <button onclick="changeHeatmapYear(2020)">2020</button>
+                <button onclick="changeHeatmapYear(2021)">2021</button>
+                <button onclick="changeHeatmapYear(2022)">2022</button>
+                <button onclick="changeHeatmapYear(2023)">2023</button>
+            </div>
+            <div class="heatmap-grid">
+                <!-- Images will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
